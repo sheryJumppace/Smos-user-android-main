@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cal_coordinateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.activity.barber.BarberMainActivity">
+
+        <!--<eightbitlab.com.blurview.BlurView
+            android:id="@+id/mainBlurView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:blurOverlayColor="@color/blue">-->
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/calendar_app_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/calendar_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <com.applandeo.materialcalendarview.CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:pagesColor="@color/black"
+                    app:headerLabelColor="@color/gold"
+                    app:daysLabelsColor="@android:color/white"
+                    app:todayLabelColor="@color/gold"
+                    app:headerColor="@color/black"
+                    app:abbreviationsBarColor="@color/dark_gray"
+                    app:abbreviationsLabelsColor="@android:color/white"
+                    app:type="one_day_picker"
+                    app:eventsEnabled="true" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/cal_nested_scroll"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ScrollingActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/lnrCalendar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/TextStyle"
+                        android:text="@string/cal_appointment"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <ImageView
+                        android:id="@+id/btnAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/ic_add" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/appoint_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:context=".ui.activity.barber.BarberMainActivity"
+                    tools:listitem="@layout/list_item_appoint" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="@string/cal_event"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <ImageView
+                        android:id="@+id/btnAddEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/ic_add" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/event_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    tools:listitem="@layout/list_item_barber" />
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!--</eightbitlab.com.blurview.BlurView>-->
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

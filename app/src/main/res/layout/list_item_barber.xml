@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="barber"
+            type="com.smox.smoxuser.model.Barber" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}"
+        android:padding="@dimen/default_margin">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/height_profile_image_small"
+            android:layout_height="@dimen/height_profile_image_small"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerCrop"
+            app:imageUrl='@{barber.image}'
+            app:isCircle="@{false}"
+            app:placeHolder="@{@drawable/big_placeholder}"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_toEndOf="@+id/imgProfile"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            tools:ignore="RtlHardcoded">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    style="@style/TextStyle"
+                    android:text="@{barber.name}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDistance"
+                    style="@style/TextStyle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@{barber.distance}"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/default_margin">
+
+                <RatingBar
+                    android:id="@+id/ratingView"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="@{barber.rating}"
+                    android:theme="@style/RatingBar" />
+
+                <TextView
+                    android:id="@+id/txtRating"
+                    style="@style/TextStyle"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@{@string/format_ratings(barber.rating, barber.countOfReviews)}"
+                    android:textColor="@color/lightGray"
+                    android:textSize="@dimen/small_font_size" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="@dimen/default_button_font_size"
+                android:text="@{barber.address}"
+                android:textColor="@color/lightGray" />
+
+            <TextView
+                android:id="@+id/txtServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="@dimen/default_button_font_size"
+                android:text="@{barber.getService()}"
+                android:textColor="@color/lightGray" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+

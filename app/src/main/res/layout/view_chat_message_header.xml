@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchWidth"
+    android:gravity="center"
+    android:padding="@dimen/_3sdp">
+
+   <!-- <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/header_date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:background="@drawable/chat_date_bubble_white"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:robotoTypeface="roboto_medium"
+        tools:text="MARCH 06" />-->
+</LinearLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_16sdp"
+    app:cardElevation="@dimen/_3ssp"
+    app:cardUseCompatPadding="true"
+    android:outlineSpotShadowColor="@color/green"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:id="@+id/rl_root">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:src="@drawable/logo_new"
+            app:civ_border_color="@color/light_yellow"
+            app:civ_border_width="@dimen/_1ssp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/largeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_toEndOf="@+id/img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/txtLastMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_11ssp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/txtMessageCount"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/message_count_bg"
+            android:padding="@dimen/_4sdp"
+            android:text="5"
+            android:textAlignment="center"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp" />
+
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        style="@style/textcolorWhiteGrey"
+        android:textColor="@color/textColor"
+        android:text="yesterday"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

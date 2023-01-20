@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.auth.SubscriptionActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay" android:id="@+id/appBarLayout">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/default_screen_margin"
+            android:layout_marginRight="@dimen/default_screen_margin"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:layout_anchor="@+id/appBarLayout">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/lnrBottom">
+                <TextView
+                    android:id="@+id/txtSubscrDesc"
+                    style="@style/TextStyle"
+                    android:textSize="@dimen/_18ssp"
+                    android:text="@string/subscribe_desc"
+                    android:textColor="@color/gold"
+                    android:gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/txtSubscrDesc">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_150sdp"
+                        android:layout_centerInParent="true"
+                        android:background="@color/subscr_amount_detail">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:textSize="@dimen/_18ssp"
+                            android:text="@string/monthly_subscr"
+                            android:textColor="@color/gold"
+                            android:gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_15sdp"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="@dimen/_15sdp">
+                                <TextView
+                                    android:id="@+id/txtSubscAmount"
+                                    style="@style/TextStyle"
+                                    android:textSize="@dimen/_24ssp"
+                                    android:text="$28.99/"
+                                    android:textColor="@color/gold"
+                                    android:gravity="center"/>
+                                <TextView
+                                    android:id="@+id/txtSubscMonth"
+                                    style="@style/TextStyle"
+                                    android:textSize="@dimen/_12ssp"
+                                    android:text="@string/month"
+                                    android:textColor="@color/gold"
+                                    android:gravity="center"/>
+                            </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:id="@+id/lnrBottom">
+                <Button
+                    style="@style/ButtonStyle"
+                    android:id="@+id/btnSubscribeNow"
+                    android:text="@string/subscribe_now"
+                    android:textAllCaps="true"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"/>
+
+                <Button
+                    style="@style/ButtonStyle"
+                    android:id="@+id/btnSkip"
+                    android:text="@string/skip"
+                    android:textAllCaps="true"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_marginBottom="@dimen/_10sdp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

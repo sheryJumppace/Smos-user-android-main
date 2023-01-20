@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.customer.CustomerMainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:background="@color/bg_yellow"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:elevation="6dp"
+            android:theme="@style/App.ToolbarStyle"
+            app:titleTextAppearance="@style/App.ToolbarTitleTex"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Toolbar Title"-->
+<!--                android:fontFamily="@font/lato_bold"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_15ssp"-->
+<!--                android:id="@+id/toolbar_title" />-->
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_customer_main"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

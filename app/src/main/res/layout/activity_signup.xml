@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.auth.SignupActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:layout_anchor="@+id/appBarLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_screen_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:text="@string/continue_with_social" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btnFacebook"
+                        style="@style/ButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_marginEnd="@dimen/default_margin_half"
+                        android:layout_marginRight="@dimen/default_margin_half"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_facebook_button"
+                        android:drawableStart="@drawable/ic_facebook_logo"
+                        android:drawableLeft="@drawable/ic_facebook_logo"
+                        android:paddingStart="@dimen/_13sdp"
+                        android:paddingLeft="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_13sdp"
+                        android:text="@string/facebook"
+                        android:textSize="@dimen/default_button_font_size"
+                        tools:ignore="RtlSymmetry" />
+
+                    <Button
+                        android:id="@+id/btnGoogle"
+                        style="@style/ButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/default_margin_half"
+                        android:layout_marginLeft="@dimen/default_margin_half"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_google_button"
+                        android:drawableStart="@drawable/ic_google_logo"
+                        android:drawableLeft="@drawable/ic_google_logo"
+                        android:paddingStart="@dimen/_13sdp"
+                        android:paddingLeft="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_13sdp"
+                        android:text="@string/google"
+                        android:textColor="@color/black"
+                        tools:ignore="RtlSymmetry" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_centerInParent="true"
+                        android:text="@string/or" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/ic_line" />
+                </RelativeLayout>
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioCustomer"
+                        style="@style/CheckBoxStyle"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_marginEnd="@dimen/_13sdp"
+                        android:layout_marginRight="@dimen/_13sdp"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/customer" />
+
+                    <RadioButton
+                        android:id="@+id/radioBarber"
+                        style="@style/CheckBoxStyle"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_weight="1"
+                        android:text="@string/barber" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/txtFirstName"
+                        style="@style/EditStyle"
+                        android:layout_width="0dp"
+                        android:layout_marginEnd="@dimen/default_margin_half"
+                        android:layout_marginRight="@dimen/default_margin_half"
+                        android:layout_weight="1"
+                        android:autofillHints="@string/first_name"
+                        android:hint="@string/first_name"
+                        android:inputType="textPersonName"
+                        tools:targetApi="o" />
+
+                    <EditText
+                        android:id="@+id/txtLastName"
+                        style="@style/EditStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/default_button_height"
+                        android:layout_marginStart="@dimen/default_margin_half"
+                        android:layout_marginLeft="@dimen/default_margin_half"
+                        android:layout_weight="1"
+                        android:autofillHints="@string/last_name"
+                        android:hint="@string/last_name"
+                        android:inputType="textPersonName"
+                        tools:targetApi="o" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/txtEmail"
+                    style="@style/EditStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:autofillHints="@string/email_address"
+                    android:hint="@string/email_address"
+                    android:inputType="textEmailAddress"
+                    tools:targetApi="o" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/txtPhone"
+                        style="@style/EditStyle"
+                        android:hint="@string/phone_number" />
+
+                    <Button
+                        android:id="@+id/btnVerify"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:text="@string/verify"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/gold"
+                        tools:ignore="RelativeOverlap,RtlCompat" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/txtPassword"
+                    style="@style/EditStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:autofillHints="@string/password"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/default_button_font_size"
+                    tools:targetApi="o" />
+
+                <Button
+                    android:id="@+id/btnSignUp"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:text="@string/sign_up"
+                    android:textAllCaps="true"
+                    tools:ignore="RtlSymmetry" />
+
+                <LinearLayout
+                    android:id="@+id/lnrLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="@string/have_an_account" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:text="@string/login"
+                        android:textColor="@color/gold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnTerms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="@string/by_signing_up_you_agree_to_our"
+                        android:textSize="@dimen/small_font_size" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginLeft="@dimen/default_margin_half"
+                        android:text="@string/terms"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/small_font_size" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginLeft="@dimen/default_margin_half"
+                        android:text="@string/and"
+                        android:textSize="@dimen/small_font_size" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginStart="@dimen/default_margin_half"
+                        android:layout_marginLeft="@dimen/default_margin_half"
+                        android:text="@string/policy"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/small_font_size" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSubscription"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:text="@string/subscription"
+                    android:textAllCaps="true"
+                    android:visibility="gone"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+        </ScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

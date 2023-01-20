@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.fragment.barber.UpNextFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/default_margin"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/txtDate"
+                        style="@style/TextCaptureStyle"
+                        android:text="THU, APR 9" />
+
+                    <TextView
+                        android:id="@+id/txtTime"
+                        style="@style/TextNightStyle"
+                        android:text="09:26 PM" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin"
+                    android:weightSum="2">
+
+                    <TextView
+                        style="@style/TextCaptureStyle"
+                        android:text="@string/wait_list" />
+
+                    <TextView
+                        android:id="@+id/txtWaitList"
+                        style="@style/TextNightStyle"
+                        android:text="@string/n_a" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/default_margin"
+                        android:background="@drawable/ic_watch" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/default_margin"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/txtWaitTime"
+                            style="@style/TextCaptureStyle"
+                            android:text="@string/wait_time" />
+
+                        <TextView
+                            android:id="@+id/txtCountTimer"
+                            style="@style/TextNightStyle"
+                            android:text="@string/n_a" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgUpnext"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/default_margin"
+                        android:background="@drawable/user" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/default_margin"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/default_margin"
+                            android:weightSum="2">
+
+                            <TextView
+                                style="@style/TextCaptureStyle"
+                                android:text="@string/up_next" />
+
+                            <TextView
+                                android:id="@+id/txtUpNext"
+                                style="@style/TextNightStyle"
+                                android:paddingRight="@dimen/_20sdp"
+                                android:text="@string/n_a" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin"
+                    android:weightSum="2">
+
+                    <TextView
+                        style="@style/TextCaptureStyle"
+                        android:text="@string/last_client" />
+
+                    <TextView
+                        android:id="@+id/txtLastClient"
+                        style="@style/TextNightStyle"
+                        android:text="@string/n_a" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/TextStyle"
+                        android:text="@string/appointment"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <ImageView
+                        android:id="@+id/btnAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/ic_add" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/appoint_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:context=".ui.activity.barber.BarberMainActivity"
+                    tools:listitem="@layout/list_item_appoint" />
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

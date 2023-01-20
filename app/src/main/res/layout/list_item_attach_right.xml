@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/msg_widget_attach_right"
+    style="@style/ListItemAttachMessage.Right">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/msg_bubble_background"
+        style="@style/BubbleAttachFrame.Right"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_item_attach_right" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/chat_attach_height">
+
+            <ProgressBar
+                android:id="@+id/msg_progressbar_attach"
+                style="@style/ProgressBarAttach.Right" />
+
+            <ImageView
+                android:id="@+id/msg_image_attach"
+                style="@style/ImageViewAttach.Right" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/LinearAttachWidgetFrame.Right"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/margin_bottom_small"
+            android:background="@null">
+
+            <TextView
+                android:id="@+id/msg_attach_status_message"
+                style="@style/TextViewAttach.Right"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Delivered" />
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/msg_image_avatar"
+        style="@style/AvatarImageViewStyle.Right" />
+</LinearLayout>

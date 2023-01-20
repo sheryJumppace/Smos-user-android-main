@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.smox.smoxuser.R"/>
+        <variable
+                name="clickListener"
+                type="android.view.View.OnClickListener"/>
+        <variable
+                name="user"
+                type="com.smox.smoxuser.model.SmoxUser"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+    >
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten"
+                android:onClick="@{clickListener}"
+        >
+            <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="@dimen/avatar_height"
+                    android:layout_height="@dimen/avatar_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    app:imageUrl='@{user.imageUrl}'
+                    app:placeHolder="@{@drawable/big_placeholder}"
+                    app:isCircle="@{true}"
+                    tools:ignore="ContentDescription,RtlHardcoded"/>
+            <TextView
+                    style="@style/TextStyle"
+                    android:id="@+id/txtName"
+                    android:text="@{user.name}"
+                    android:layout_toStartOf="@+id/btnFavorite" android:layout_toLeftOf="@+id/btnFavorite"
+                    android:layout_toEndOf="@+id/imgProfile" android:layout_toRightOf="@+id/imgProfile"
+                    android:paddingRight="@dimen/default_margin"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:layout_centerVertical="true"
+                    />
+            <ImageView
+                    android:id="@+id/btnFavorite"
+                    android:layout_width="@dimen/margin_s_twenty"
+                    android:layout_height="@dimen/margin_s_twenty"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@{user.isSelected ? @drawable/icon_circle_check :@drawable/icon_circle_uncheck}"
+            />
+        </RelativeLayout>
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray"/>
+    </RelativeLayout>
+</layout>

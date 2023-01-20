@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/product_color"
+        tools:context=".ui.fragment.product.ProductFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnWidth="@dimen/height_product_image"
+            android:gravity="center"
+            android:horizontalSpacing="@dimen/default_margin"
+            android:numColumns="auto_fit"
+            android:verticalSpacing="@dimen/default_margin" />
+
+        <TextView
+            android:id="@+id/txtStNoProduct"
+            style="@style/TextStyle"
+            android:layout_centerInParent="true"
+            android:text="@string/customer_product_no_found"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/cart_button"
+            android:background="@null"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/light_fg_color"
+            android:indeterminateTintMode="src_atop" />
+
+
+    </RelativeLayout>
+</layout>

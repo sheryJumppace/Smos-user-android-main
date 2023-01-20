@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/_4sdp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/txtTitleReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_semibold"
+                android:gravity="center"
+                android:text="@string/reviews_ratings"
+                style="@style/textcolor"
+                android:textSize="@dimen/_16sdp" />
+
+
+            <EditText
+                android:id="@+id/txtValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/round_border_text"
+                android:clickable="false"
+                android:ems="10"
+                style="@style/textcolor"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:gravity="left"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/black" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".5"
+                        android:fontFamily="@font/opensans_regular"
+                        android:gravity="start"
+                        android:text="@string/clean"
+                        style="@style/textcolor"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                        android:id="@+id/ratingBarClean"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:numStars="5"
+                        app:srb_borderColor="@color/gold"
+                        app:srb_fillColor="@color/gold"
+                        app:srb_isIndicator="true"
+                        app:srb_stepSize="1" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".5"
+                        android:fontFamily="@font/opensans_regular"
+                        android:gravity="start"
+                        android:text="@string/work"
+                        style="@style/textcolor"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                        android:id="@+id/ratingBarWork"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:numStars="5"
+                        app:srb_borderColor="@color/gold"
+                        app:srb_fillColor="@color/gold"
+                        app:srb_isIndicator="true"
+                        app:srb_stepSize="1" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".5"
+                        android:fontFamily="@font/opensans_regular"
+                        android:gravity="start"
+                        android:text="@string/behave"
+                        style="@style/textcolor"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                        android:id="@+id/ratingBarBehave"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:numStars="5"
+                        app:srb_borderColor="@color/gold"
+                        app:srb_fillColor="@color/gold"
+                        app:srb_isIndicator="true"
+                        app:srb_stepSize="1" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDone"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/round_corner"
+                    android:text="@android:string/ok"
+                    android:textColor="@color/black"
+                    tools:ignore="ButtonStyle" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

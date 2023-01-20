@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isCanDelete"
+            type="Boolean" />
+
+        <variable
+            name="isShowService"
+            type="Boolean" />
+
+        <variable
+            name="appointment"
+            type="com.smox.smoxuser.model.Appointment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_12sdp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="@dimen/_4sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/rlRoot"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp">
+
+                <ImageView
+                    android:id="@+id/serviceImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_yellow"
+                    android:scaleType="centerCrop"
+                    app:imageUrl='@{appointment.user.imageUrl}'
+                    app:isCircle="@{false}"
+                    app:placeHolder="@{@drawable/big_placeholder}"
+                    tools:ignore="ContentDescription,RtlHardcoded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#66000000"
+                    android:gravity="center"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/_6sdp"
+                    android:text="@{@string/string_replace(appointment.getDate).toUpperCase()}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/rlRoot"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:textColor="#141516"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtServiceTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtService"
+                android:layout_toEndOf="@+id/rlRoot"
+                android:drawablePadding="@dimen/_8sdp"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:text="@{@string/string_replace(appointment.dayTime).toUpperCase()}"
+                android:textColor="#757575"
+                android:textSize="@dimen/_14ssp"
+                app:drawableStartCompat="@drawable/ic_baseline_access_time_filled_24" />
+
+            <TextView
+                android:id="@+id/txtServicePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/txtName"
+                android:fontFamily="@font/lato_bolditalic"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:text="@{appointment.getServicePrice(context)}"
+                android:textColor="#141516"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtName"
+                android:layout_toEndOf="@+id/rlRoot"
+                android:drawablePadding="@dimen/_8sdp"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:fontFamily="@font/lato_regular"
+                android:textColor="#757575"
+                android:text="@{appointment.getService(context, isShowService)}"
+                android:textSize="@dimen/_14ssp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

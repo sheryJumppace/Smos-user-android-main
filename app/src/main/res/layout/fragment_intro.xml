@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            tools:context=".ui.fragment.IntroFirstFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <com.santalu.aspectratioimageview.AspectRatioImageView
+                android:id="@+id/imgView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/default_margin"
+                android:src="@drawable/ic_logo"
+                tools:ignore="ContentDescription"
+                app:ari_ratio="1"/>
+        <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_intro_header"
+                android:layout_margin="@dimen/_15sdp"/>
+        <TextView
+                android:id="@+id/txtContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="@dimen/medium_font_size"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"/>
+        <Button
+                style="@style/ButtonStyle"
+                android:id="@+id/btnStart"
+                android:text="Start"
+                android:layout_margin="@dimen/_15sdp"
+                android:textAllCaps="true"
+                tools:ignore="RtlSymmetry"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

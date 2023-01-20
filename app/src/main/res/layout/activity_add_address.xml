@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.product.AddAddressActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay" android:id="@+id/appBarLayout">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="@string/add_address"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                app:layout_anchor="@+id/appBarLayout">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/default_screen_margin"
+                    android:layout_marginRight="@dimen/default_screen_margin"
+                    android:gravity="center"
+                    android:layout_gravity="center">
+
+                    <EditText
+                        style="@style/EditStyle"
+                        android:id="@+id/edtCustomerName"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/default_margin_half"
+                        android:inputType="textPersonName"
+                        android:hint="@string/customer_name"
+                        android:layout_marginEnd="@dimen/default_margin_half"
+                        android:autofillHints="@string/customer_name" tools:targetApi="o"
+                        android:layout_marginTop="@dimen/default_margin"/>
+
+                    <EditText
+                        style="@style/EditStyle"
+                        android:id="@+id/edtAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/default_margin_half"
+                        android:inputType="textPostalAddress|textMultiLine"
+                        android:hint="@string/address"
+                        android:layout_marginEnd="@dimen/default_margin_half"
+                        android:autofillHints="@string/address" tools:targetApi="o"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:minLines="4"
+                        android:clickable="false"/>
+
+                    <EditText
+                        android:visibility="gone"
+                        style="@style/EditStyle"
+                        android:id="@+id/edtPostalCode"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/default_margin_half"
+                        android:inputType="number"
+                        android:hint="@string/postal_code"
+                        android:layout_marginEnd="@dimen/default_margin_half"
+                        android:autofillHints="@string/postal_code" tools:targetApi="o"
+                        android:layout_marginTop="@dimen/default_margin" />
+
+                    <Button
+                        style="@style/ButtonStyle"
+                        android:id="@+id/btnSaveAddress"
+                        android:layout_marginTop="@dimen/_35sdp"
+                        android:text="@string/save_address"
+                        android:textAllCaps="true"
+                        tools:ignore="RtlSymmetry"/>
+                </LinearLayout>
+            </ScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

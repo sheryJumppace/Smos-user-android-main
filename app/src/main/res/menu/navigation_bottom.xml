@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_bottom_up_next"
+        android:icon="@drawable/ic_appointments"
+        android:title="@string/upnext" />
+    <item
+        android:id="@+id/navigation_bottom_calendar"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/calendar" />
+    <item
+        android:id="@+id/navigation_bottom_funds"
+        android:icon="@drawable/ic_dollar_grey"
+        android:title="@string/funds" />
+    <item
+        android:id="@+id/navigation_bottom_smox_talk"
+        android:icon="@drawable/ic_smoxtalk"
+        android:title="@string/smoxtalk" />
+
+</menu>

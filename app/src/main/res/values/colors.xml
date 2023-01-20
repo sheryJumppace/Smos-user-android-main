@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="gold">#FFBB0C</color>
+    <color name="gold_pressed">#FFBB0C</color>
+    <color name="button_diable">#D8AD84</color>
+    <color name="facebook">#3b5998</color>
+    <color name="red">#ff0000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_transparent">#33FFFFFF</color>
+
+    <color name="BackgroundColor">#f9f9f9</color>
+    <color name="SignupTextColor">#A6A6A6</color>
+
+    <color name="EditTextColor">#17547C</color>
+    <color name="SelectedColor">#0093FF</color>
+    <color name="ButtonColorActive">#39A5E5</color>
+    <color name="ButtonColor">#CACDCF</color>
+    <color name="UnselectedColor">#14B0E5</color>
+    <color name="CheckBoxColor">#FF2B5B94</color>
+    <color name="checkboxColor">#686868</color>
+    <color name="golden_color">#ffd700</color>
+    <color name="dark_golden_color">#FF9800</color>
+    <color name="color_option_menu">#FF3990</color>
+    <color name="filter_label_normal">#8A8889</color>
+    <color name="filter_label_selected">#221F20</color>
+    <color name="follow_unfollow_ringcolor">#66CDAF</color>
+    <color name="red_color">#FF0000</color>
+    <color name="darkGray">#4A5357</color>
+    <color name="lightGray">#A6A6A6</color>
+    <color name="darkBlue">#3D5975</color>
+    <color name="lightBlue">#94BBDC</color>
+    <color name="light_yellow">#FFBB0C</color>
+
+
+    <color name="underline">#ff0000</color>
+    <color name="headerText">#EEEEEE</color>
+    <color name="disableDate">#979797</color>
+    <color name="event_row">#228C22</color>
+    <color name="chat_back">#303030</color>
+    <color name="subscr_amount_detail">#1F2124</color>
+    <color name="dark_black">#aaa</color>
+    <color name="chat_sender_name_color">#147EFB</color>
+
+    <color name="colorAccentLight">#FFE082</color>
+    <color name="colorAccentLighter">#FFECB3</color>
+    <color name="textDisabledHint">#CFD8DC</color>
+    <color name="imgDisableHint">#90A4AE</color>
+    <color name="textColor">#263238</color>
+    <color name="dollar_sign">#2ECC71</color>
+    <color name="dollar_sign_yellow">#fcf75e</color>
+
+   <!-- New Color Code-->
+    <color name="light_black">#212426</color>
+    <color name="light_plus_black">#111213</color>
+    <color name="light_gray">#757575</color>
+    <color name="black">#141516</color>
+    <color name="light_fg_color">#082539</color>
+    <color name="bg_yellow">#FFF8E9</color>
+
+
+
+
+</resources>

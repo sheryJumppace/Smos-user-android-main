@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.barber.StripeConnectActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@string/text_stripe_keys_title"
+                app:toolbarId="@+id/toolbar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/plant_detail_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/default_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/default_margin">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtPublicKey"
+                    style="@style/EditStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@string/text_stripe_public_key"
+                    android:inputType="text"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    tools:targetApi="o" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtPrivateKey"
+                    style="@style/EditStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@string/text_stripe_secret_key"
+                    android:inputType="text"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    tools:targetApi="o" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/margin_s_fifteen"
+                    android:layout_marginBottom="@dimen/margin_s_fifteen"
+                    android:text="@string/action_save"
+                    android:textAllCaps="true" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

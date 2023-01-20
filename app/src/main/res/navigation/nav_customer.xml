@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_customer"
+    app:startDestination="@id/barberSearchFragment">
+    <fragment
+        android:id="@+id/barberSearchFragment"
+        android:name="com.smox.smoxuser.ui.fragment.customer.BarberSearchFragment"
+        android:label="Search">
+        <action
+            android:id="@+id/action_barberSearchFragment_to_servicesFragment"
+            app:destination="@id/servicesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_appointmentsFragment"
+            app:destination="@id/appointmentsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+
+        <action
+            android:id="@+id/action_barberSearchFragment_to_contactusfragment"
+            app:destination="@id/contactusFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+
+        <action
+            android:id="@+id/action_barberSearchFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_productFragment"
+            app:destination="@id/productFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_smoxTalks"
+            app:destination="@id/smoxTalks"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_customerUpNextFragment"
+            app:destination="@id/customerUpNextFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberSearchFragment_to_eventsFragment"
+            app:destination="@id/eventsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentsFragment"
+        android:name="com.smox.smoxuser.ui.fragment.customer.AppointmentsFragment"
+        android:label="Appointments" />
+
+    <fragment
+        android:id="@+id/contactusFragment"
+        android:name="com.smox.smoxuser.ui.fragment.ContactusFragment"
+        android:label="Appointments" />
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.smox.smoxuser.ui.fragment.AccountFragment"
+        android:label="    "
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.smox.smoxuser.ui.fragment.WebViewFragment"
+        android:label="About us"
+        tools:layout="@layout/fragment_web_view">
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.smox.smoxuser.ui.fragment.PasswordFragment"
+        android:label="    " />
+
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.smox.smoxuser.ui.fragment.customer.ServicesFragment"
+        android:label="@string/favorites" />
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.smox.smoxuser.ui.fragment.product.ProductFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_product" />
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.smox.smoxuser.ui.fragment.orders.MyOrdersFragment"
+        android:label="@string/my_orders"
+        tools:layout="@layout/fragment_my_orders" />
+    <fragment
+        android:id="@+id/smoxTalks"
+        android:name="com.smox.smoxuser.ui.fragment.chat.SmoxTalkNewFragment"
+        android:label="@string/smox_talks"
+        tools:layout="@layout/fragment_smox_talk_new" />
+    <fragment
+        android:id="@+id/customerUpNextFragment"
+        android:name="com.smox.smoxuser.ui.fragment.customer.CustomerUpNextFragment"
+        android:label="UpNext" />
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.smox.smoxuser.ui.fragment.events.EventsFragment"
+        android:label="Events" />
+</navigation>

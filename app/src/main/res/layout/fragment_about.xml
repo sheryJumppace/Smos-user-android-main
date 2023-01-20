@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="barber"
+            type="com.smox.smoxuser.model.Barber" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp">
+        <TextView
+            android:id="@+id/txtBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Cancellation fees jhgashd jadja jhaSJ JHajsh jashjka HSJKah sjhAJ SJKhjs haJKSH KJhs jaHSJA shgaJS Asghj GJHGDJASDGJSJFSDJZJHJK HSKASDsf sdj"
+            style="@style/textcolor"
+            android:text="@{barber.bio}"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtWorkHour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/workHour"
+            style="@style/textcolor"
+            android:fontFamily="@font/lato_black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_17sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBio"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llWorkTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/txtWorkHour">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llMon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mon"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp"  />
+                <TextView
+                    android:id="@+id/txtMon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/dark_gray"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llTue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text= "@string/tue"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp" />
+                <TextView
+                    android:id="@+id/txtTue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llWed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wed"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp" />
+                <TextView
+                    android:id="@+id/txtWed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Monkjh sjldjaslkjd"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llThur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thur"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp" />
+                <TextView
+                    android:id="@+id/txtThurs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llFri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fri"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp" />
+                <TextView
+                    android:id="@+id/txtFri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llSat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sat"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp" />
+                <TextView
+                    android:id="@+id/txtSat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llSun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="visible"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sun"
+                    android:fontFamily="@font/lato_bold"
+                    style="@style/textcolor"
+                    android:textSize="@dimen/_14sdp" />
+                <TextView
+                    android:id="@+id/txtSun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_14sdp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llWorkTime">
+            <TextView
+                android:id="@+id/txtHoliday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/holiday"
+                style="@style/textcolor"
+                android:fontFamily="@font/lato_black"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_17sdp"
+               />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHolidayList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="6"
+                android:visibility="visible"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/llHeader"
+                app:layout_constraintBottom_toBottomOf="parent"
+               />
+
+            <TextView
+                android:id="@+id/tvNoDataFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_semibold"
+                android:text="@string/noHoliday"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/quantum_grey"
+                android:textSize="@dimen/medium_font_size"
+                android:visibility="gone" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

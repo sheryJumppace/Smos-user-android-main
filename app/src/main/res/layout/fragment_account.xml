@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?><layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_yellow"
+        android:paddingBottom="@dimen/_50sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ProfilePic"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:src="@mipmap/test"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-50dp"
+            android:layout_marginStart="@dimen/_90sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_profile_edit"/>
+
+        <TextView
+            android:id="@+id/txtPERSONAL_DETAILS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ProfilePic"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_16ssp"
+            android:text="@string/personal_details"/>
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPERSONAL_DETAILS"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_14ssp"
+            android:text="@string/first_name"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/rect_border"
+            android:layout_marginTop="@dimen/_5sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_user_name_profile" />
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/first_name"
+                android:ems="10"
+                android:padding="@dimen/_8sdp"
+                android:fontFamily="@font/lato_regular"
+                android:layout_gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:background="@null"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llName"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_14ssp"
+            android:text="Email Address"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/rect_border"
+            android:layout_marginTop="@dimen/_5sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_email_profile"
+                android:contentDescription="@string/app_name" />
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:ems="10"
+                android:padding="@dimen/_8sdp"
+                android:fontFamily="@font/lato_regular"
+                android:layout_gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:background="@null"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <TextView
+            android:id="@+id/txtMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llEmail"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_14ssp"
+            android:text="Mobile Number"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llMobile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMobile"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/rect_border"
+            android:layout_marginTop="@dimen/_5sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_number_profile"
+                android:contentDescription="@string/app_name" />
+            <EditText
+                android:id="@+id/etNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Mobile Number"
+                android:ems="10"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:fontFamily="@font/lato_regular"
+                android:layout_gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:background="@null"/>
+            <TextView
+                android:id="@+id/editNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verify"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/light_fg_color"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_gravity="center_vertical"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llMobile"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_16ssp"
+            android:text="LOCATION DETAILS"/>
+
+        <TextView
+            android:id="@+id/txtAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLocation"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_14ssp"
+            android:text="Address"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAddress"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/rect_border"
+            android:layout_marginTop="@dimen/_5sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_location_profile"
+                android:contentDescription="@string/app_name" />
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:ems="10"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/lato_regular"
+                android:background="@null"/>
+            <TextView
+                android:id="@+id/editAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/light_fg_color"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_gravity="center_vertical"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/txtSecurity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llAddress"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_black"
+            android:textSize="@dimen/_16ssp"
+            android:text="SECURITY"/>
+
+        <TextView
+            android:id="@+id/txtPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSecurity"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/light_fg_color"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_14ssp"
+            android:text="Password"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/rect_border"
+            android:layout_marginTop="@dimen/_5sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_pass_profile"
+                android:contentDescription="@string/app_name" />
+            <EditText
+                android:id="@+id/etPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:ems="10"
+                android:layout_weight="1"
+
+                android:layout_gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/lato_regular"
+                android:background="@null"/>
+            <TextView
+                android:id="@+id/editPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/light_fg_color"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center_vertical"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+
+</layout>

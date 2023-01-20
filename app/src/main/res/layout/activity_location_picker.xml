@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.activity.LocationPickerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_quantity"
+            android:layout_margin="@dimen/default_margin">
+        <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:queryHint="Search by address"/>
+        <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
+        <ListView
+                android:id="@+id/listView"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/btnSelectAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/default_margin"
+            android:padding="@dimen/default_margin"
+            android:background="@drawable/bg_quantity"
+            android:layout_alignParentBottom="true"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/use_this_address"
+                android:textColor="@color/gold"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="normal"
+        />
+
+        <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
+        />
+
+        <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
+        />
+    </LinearLayout>
+
+</RelativeLayout>

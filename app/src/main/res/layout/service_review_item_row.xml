@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="review"
+            type="com.smox.smoxuser.model.Review"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_12sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgReviewer"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_service_m"/>
+    <TextView
+        android:id="@+id/txtReviewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginStart="@dimen/_3sdp"
+        style="@style/textcolor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgReviewer"
+        android:text="Sonia Williams"/>
+    <TextView
+        android:id="@+id/txtReviewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#969696"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtReviewName"
+        android:text="15 days ago"/>
+
+    <TextView
+        android:id="@+id/txtReviewDes"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/_5ssp"
+        android:padding="@dimen/_5sdp"
+        android:text="Lorem ipsum dolor sit amet, conse sadipscing elitr, sed diam nonumy"
+        app:layout_constraintStart_toEndOf="@+id/imgReviewer"
+        app:layout_constraintTop_toBottomOf="@+id/txtReviewName" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/imgReviewer"
+        app:layout_constraintTop_toBottomOf="@+id/txtReviewDes"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/rattingBarValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.0"
+            style="@style/textcolor" />
+        <RatingBar
+            android:id="@+id/rattingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/RatingBar"
+            android:progressTint="#FFBB0C"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:rating="4" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

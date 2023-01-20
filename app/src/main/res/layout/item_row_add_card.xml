@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_4ssp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/rlCardBG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_corner_selected"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/txtCardNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2245- XXXX - XXXX- 4454"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp" />
+
+
+            <TextView
+                android:id="@+id/txtHolderHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtCardNumber"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="CARD HOLDER NAME"
+                android:textColor="#EBEBEB" />
+
+            <TextView
+                android:id="@+id/txtHolderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtHolderHint"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Danial Williams"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_5sdp"
+                android:src="@drawable/ic_mastercard" />
+
+            <ImageView
+                android:id="@+id/imgCardArrow"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_below="@+id/txtCardNumber"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:src="@drawable/icon_circle_uncheck" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

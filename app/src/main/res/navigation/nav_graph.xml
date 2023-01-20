@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cartBarberListFragment">
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.smox.smoxuser.ui.activity.product.ProductListFragment"
+        android:label="ProductListFragment"
+        tools:layout="@layout/fragment_product_list" >
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartBarberListFragment"
+        android:name="com.smox.smoxuser.ui.activity.product.CartBarberListFragment"
+        android:label="fragment_cart_barber_list"
+        tools:layout="@layout/fragment_cart_barber_list" >
+        <action
+            android:id="@+id/action_cartBarberListFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.smox.smoxuser.ui.activity.product.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_addEditAddressFragment"
+            app:destination="@id/addEditAddressFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditAddressFragment"
+        android:name="com.smox.smoxuser.ui.fragment.address.AddEditAddressFragment"
+        android:label="AddEditAddressFragment"
+        tools:layout="@layout/fragment_add_edit_address" />
+    <fragment
+        android:id="@+id/addressListFragment"
+        android:name="com.smox.smoxuser.ui.fragment.address.AddressListFragment"
+        android:label="fragment_address_list"
+        tools:layout="@layout/fragment_address_list" >
+        <action
+            android:id="@+id/action_addressListFragment_to_addEditAddressFragment"
+            app:destination="@id/addEditAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.smox.smoxuser.ui.activity.product.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
+</navigation>

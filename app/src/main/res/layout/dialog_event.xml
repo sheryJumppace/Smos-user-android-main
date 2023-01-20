@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/lnrEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:background="@drawable/dialog_content"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_8sdp">
+
+            <!--<TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/event_status"
+                android:textColor="@color/black"
+                android:textSize="17sp" />-->
+
+            <TextView
+                android:id="@+id/textView20"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_event"
+                android:textColor="@color/black"
+                android:gravity="start"
+                tools:targetApi="o"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"/>
+
+
+
+            <EditText
+                android:id="@+id/txtValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_s_eightyfive"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/round_edit_text"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:gravity="left"
+                android:padding="@dimen/_8sdp" />
+
+            <!--<LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/default_margin"
+                android:weightSum="9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txtStartTime"
+                    style="@style/TextStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:hint="@string/start_date"
+                    android:textColor="@color/black"
+                    android:gravity="end"
+                    tools:targetApi="o"/>
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/medium_font_size"
+                    android:text="-"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    tools:targetApi="o"/>
+                <TextView
+                    android:id="@+id/txtEndTime"
+                    style="@style/TextStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:hint="@string/end_date"
+                    android:textColor="@color/black"
+                    tools:targetApi="o"/>
+
+            </LinearLayout>-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <TextView
+                        android:id="@+id/txtStartDate"
+                        style="@style/TextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.17"
+                        android:text="@string/cal_start_date"
+                        android:textColor="@color/black"
+                        android:gravity="start"
+                        tools:targetApi="o"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/edtStartDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.83"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/round_edit_text"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_button_font_size"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:layout_marginTop="@dimen/_8sdp">
+                    <TextView
+                        android:id="@+id/txtEndDate"
+                        style="@style/TextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.17"
+                        android:text="@string/cal_end_date"
+                        android:textColor="@color/black"
+                        android:gravity="start"
+                        tools:targetApi="o"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/edtEndDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.83"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@drawable/round_edit_text"
+                        android:textColor="@color/black"
+                        android:padding="@dimen/margin_five"
+                        android:textSize="@dimen/default_button_font_size"
+                        />
+                </LinearLayout>
+
+                <!--<TextView
+                        android:id="@+id/txtStartTime"
+                        style="@style/TextStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:hint="@string/start_date"
+                        android:textColor="@color/black"
+                        android:gravity="end"
+                        tools:targetApi="o"/>
+                <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/medium_font_size"
+                        android:text="-"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        tools:targetApi="o"/>
+                <TextView
+                        android:id="@+id/txtEndTime"
+                        style="@style/TextStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:hint="@string/end_date"
+                        android:textColor="@color/black"
+                        tools:targetApi="o"/>-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical"
+            android:layout_below="@+id/lnrEvent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightGray"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:text="@android:string/cancel"
+                    android:textColor="@color/lightGray"
+                    android:background="@android:color/transparent"
+                    tools:ignore="ButtonStyle" />
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/lightGray"/>
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:text="@string/post"
+                    android:textColor="@color/ButtonColorActive"
+                    android:background="@android:color/transparent"
+                    tools:ignore="ButtonStyle" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

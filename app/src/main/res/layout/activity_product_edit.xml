@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.product.ProductEditActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="Add Product"
+                app:toolbarId="@+id/toolbar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/plant_detail_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/default_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_screen_margin"
+                android:layout_marginRight="@dimen/default_screen_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgService"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintDimensionRatio="H,3:2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/bg_add_image" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/lblProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_name"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+                <EditText
+                    android:id="@+id/txtName"
+                    style="@style/EditStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:hint="@string/product_name" />
+
+                <TextView
+                    android:id="@+id/lblProductPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/txtPrice"
+                        style="@style/EditStyle"
+                        android:hint="@string/price"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_five"
+                        android:text="$" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/lblProductShippingCharges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shipping_charges"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/txtShippingCharges"
+                        style="@style/EditStyle"
+                        android:hint="@string/shipping_charges"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_five"
+                        android:text="$" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/lblProductTax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tax"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/txtTax"
+                        style="@style/EditStyle"
+                        android:hint="@string/tax"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_five"
+                        android:text="$" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/lblProductDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+                <EditText
+                    android:id="@+id/txtDescription"
+                    style="@style/EditStyle"
+                    android:layout_height="@dimen/margin_s_eightyfive"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:gravity="start"
+                    android:hint="@string/description"
+                    android:paddingTop="@dimen/default_margin"
+                    android:textAlignment="textStart" />
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/default_screen_margin"
+                    android:text="@string/action_save" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

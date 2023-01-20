@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isCanDelete"
+            type="Boolean" />
+
+        <variable
+            name="isShowService"
+            type="Boolean" />
+
+        <variable
+            name="appointment"
+            type="com.smox.smoxuser.model.Appointment" />
+    </data>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_12sdp"
+    app:isGone="@{appointment.isSection}"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/_4sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlRoot"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_110sdp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_yellow"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/test" />
+
+            <TextView
+                style="@style/textcolor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#77000000"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:text="@{appointment.appointmentDate}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_toEndOf="@+id/rlRoot"
+            android:gravity="center"
+            android:padding="@dimen/_6sdp"
+            android:text="@{appointment.user.firstName.concat(` `).concat(appointment.user.lastName) }"
+            style="@style/textcolor"
+            android:fontFamily="@font/lato_regular"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/txtServiceTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtName"
+            android:layout_toEndOf="@+id/rlRoot"
+            android:drawablePadding="@dimen/_8sdp"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:padding="@dimen/_6sdp"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/txtServicePrice"
+            style="@style/textcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_toEndOf="@+id/txtName"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:padding="@dimen/_6sdp"
+            android:textStyle="bold"
+            android:text="@{@string/format_price(appointment.price)}"
+            android:textSize="@dimen/_14ssp" />
+
+        <View
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_alignParentEnd="true"
+            android:background="#FF5E00"/>
+
+        <ImageView
+            android:id="@+id/imgEditAppointment"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_below="@+id/txtServiceTime"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/edit_appointment"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

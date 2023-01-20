@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseSmox">
+        <item name="android:fontFamily">@font/avenir_roman</item>
+    </style>
+    <style name="NightLight">
+        <item name="android:fontFamily">@font/djb_friday_night_lights</item>
+    </style>
+    <style name="CaptureIt">
+        <item name="android:fontFamily">@font/capture_it</item>
+    </style>
+</resources>

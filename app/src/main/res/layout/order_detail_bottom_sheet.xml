@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="priceInfo"
+            type="com.smox.smoxuser.model.OrderItem" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llPriceDetailBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/_80sdp"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:text="Address"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtOrderId"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:text="@{@string/orderId(priceInfo.id)}"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Order Id: 45" />
+
+                    <TextView
+                        android:id="@+id/txtName"
+                        style="@style/textcolorBlueWhite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="@{priceInfo.name}"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtAddress"
+                        tools:text="Name" />
+
+                    <TextView
+                        android:id="@+id/txtFullAddress"
+                        style="@style/textcolorBlueWhite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="@{priceInfo.address}"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtName"
+                        tools:text="Full address" />
+
+                    <TextView
+                        android:id="@+id/txtPhone"
+                        style="@style/textcolorBlueWhite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="@{priceInfo.phone}"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFullAddress"
+                        tools:text="Phone" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/grey"
+                        android:padding="@dimen/_5sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPhone" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/txtItemQty"
+                        style="@style/textcolorWhiteGrey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="Item Quantity"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtItemQuantity"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="@{@string/cartCount(priceInfo.quantity)}"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="1" />
+
+                    <TextView
+                        android:id="@+id/txtItemTotalInfo"
+                        style="@style/textcolorWhiteGrey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="Item Total"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtItemQty" />
+
+                    <TextView
+                        android:id="@+id/txtItemTotal"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="@{@string/format_price(priceInfo.sub_total)}"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/txtItemQuantity"
+                        tools:text="$600" />
+
+                    <TextView
+                        android:id="@+id/txtShippingInfo"
+                        style="@style/textcolorWhiteGrey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="Shipping Fee"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtItemTotal" />
+
+                    <TextView
+                        android:id="@+id/txtShipping"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="@{@string/format_price(priceInfo.shipping_charges)}"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtItemTotal"
+                        tools:text="$600" />
+
+                    <TextView
+                        android:id="@+id/txtTotalAmountInfo"
+                        style="@style/textcolorWhiteGrey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:text="Total Amount"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtShippingInfo" />
+
+                    <TextView
+                        android:id="@+id/txtTotalAmount"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:text="@{@string/format_price(priceInfo.total_price)}"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtShipping"
+                        tools:text="$600" />
+
+                    <TextView
+                        android:id="@+id/txtOrderPlaced"
+                        style="@style/textcolorWhiteGrey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:text="Order Placed on"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTotalAmountInfo" />
+
+                    <TextView
+                        android:id="@+id/txtOrderPlacedOn"
+                        style="@style/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:text="@{priceInfo.getDateee()}"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTotalAmount"
+                        tools:text="Oct 24, 2021 12:40 pm" />
+
+                    <TextView
+                        android:id="@+id/txtCancelOrder"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rect_border_yellow"
+                        android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Cancel order"
+                        android:visibility="@{priceInfo.isShowCancelBtn()? View.VISIBLE:View.GONE}"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtOrderPlacedOn"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@color/grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtCancelOrder" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

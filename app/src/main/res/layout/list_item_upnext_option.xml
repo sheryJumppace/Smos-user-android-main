@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="clickListener"
+                type="android.view.View.OnClickListener"/>
+        <variable
+                name="upNext"
+                type="com.smox.smoxuser.model.UpNextOption"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}">
+        <TextView
+                style="@style/TextStyle"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@id/btnDelete"
+                android:layout_centerVertical="true"
+                android:paddingTop="@dimen/margin_s_ten"
+                android:paddingBottom="@dimen/margin_s_ten"
+                android:paddingRight="@dimen/default_margin"
+                android:paddingLeft="@dimen/margin_s_fifteen"
+                android:textSize="@dimen/medium_font_size"
+                android:text="@{upNext.title.toUpperCase()}" android:layout_alignParentLeft="true"/>
+
+        <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="@dimen/margin_s_fifteen"
+                android:layout_height="@dimen/margin_s_twenty"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{clickListener}"
+                app:isGone="@{upNext.isStatic}"
+                android:src="@drawable/dustbin"/>
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray"/>
+    </RelativeLayout>
+</layout>
+

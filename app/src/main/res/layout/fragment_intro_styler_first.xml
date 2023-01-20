@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:gravity="center_horizontal"
+                  tools:context=".ui.fragment.IntroFirstFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                tools:ignore="ContentDescription"/>
+        <TextView
+                android:id="@+id/txtHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_intro_header"
+                android:layout_margin="@dimen/default_margin"/>
+        <!--<TextView-->
+                <!--android:id="@+id/txtAvailable"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="@dimen/font_intro_header"-->
+                <!--android:layout_marginStart="20dp"/>-->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--tools:ignore="RtlHardcoded">-->
+
+            <!--<ImageView-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:src="@drawable/img_intro_1_1"-->
+                    <!--tools:ignore="ContentDescription"-->
+            <!--/>-->
+
+            <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/default_margin"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:textSize="20sp"-->
+                        <!--android:text="@string/pick_up"-->
+                        <!--android:textStyle="bold"-->
+                        <!--tools:text="Title" />-->
+
+                <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/default_margin"-->
+                        <!--android:maxLines="2"-->
+                        <!--android:textSize="14sp"-->
+                        <!--android:textAlignment="center"-->
+                        <!--android:text="@string/food_courts"-->
+                        <!--tools:text="Sub Title" />-->
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--tools:ignore="RtlHardcoded">-->
+
+            <!--<ImageView-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:src="@drawable/img_intro_1_2"-->
+                    <!--tools:ignore="ContentDescription"-->
+            <!--/>-->
+
+            <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/default_margin"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:textSize="20sp"-->
+                        <!--android:text="@string/table_delivery"-->
+                        <!--android:textStyle="bold"-->
+                        <!--tools:text="Title" />-->
+
+                <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/default_margin"-->
+                        <!--android:maxLines="2"-->
+                        <!--android:textSize="14sp"-->
+                        <!--android:textAlignment="center"-->
+                        <!--android:text="(Restaurants)"-->
+                        <!--tools:text="Sub Title" />-->
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--tools:ignore="RtlHardcoded">-->
+
+            <!--<ImageView-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:src="@drawable/img_intro_1_3"-->
+                    <!--tools:ignore="ContentDescription"-->
+            <!--/>-->
+
+            <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/default_margin"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:textSize="20sp"-->
+                        <!--android:text="@string/in_room_dinning"-->
+                        <!--android:textStyle="bold"-->
+                        <!--tools:text="Title" />-->
+
+                <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/default_margin"-->
+                        <!--android:maxLines="2"-->
+                        <!--android:textSize="14sp"-->
+                        <!--android:textAlignment="center"-->
+                        <!--android:text="(Hotels)"-->
+                        <!--tools:text="Sub Title" />-->
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

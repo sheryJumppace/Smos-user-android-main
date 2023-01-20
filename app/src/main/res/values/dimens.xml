@@ -1,0 +1,70 @@
+<resources>
+    <dimen name="action_bar_icon_size">30dp</dimen>
+    <dimen name="default_button_height">@dimen/_43sdp</dimen>
+    <dimen name="default_button_font_size">@dimen/_12ssp</dimen>
+    <dimen name="small_font_size">@dimen/_10ssp</dimen>
+    <dimen name="medium_font_size">@dimen/_13ssp</dimen>
+    <dimen name="large_font_size">@dimen/_20ssp</dimen>
+    <dimen name="title_font_size">@dimen/_21ssp</dimen>
+    <dimen name="default_screen_margin">@dimen/_35sdp</dimen>
+    <dimen name="default_margin">@dimen/_6sdp</dimen>
+    <dimen name="default_margin_half">@dimen/_3sdp</dimen>
+    <dimen name="default_corner_radius">@dimen/_5sdp</dimen>
+    <dimen name="navigation_drawer_header_height">@dimen/_80sdp</dimen>
+    <dimen name="avatar_height">@dimen/_30sdp</dimen>
+    <dimen name="divider_height">@dimen/_1sdp</dimen>
+    <dimen name="app_bar_height">@dimen/_90sdp</dimen>
+    <dimen name="font_intro_header">@dimen/_20ssp</dimen>
+    <dimen name="intro_margin">10dp</dimen>
+    <dimen name="intro_logo_height">@dimen/_100sdp</dimen>
+
+    <dimen name="margin_s_eight">@dimen/_8sdp</dimen>
+    <dimen name="margin_s_ten">@dimen/_10sdp</dimen>
+    <dimen name="margin_sevtn">17sp</dimen>
+    <dimen name="margin_eighteen">16sp</dimen>
+    <dimen name="margin_twelve">12dp</dimen>
+    <dimen name="margin_s_fifteen">@dimen/_15sdp</dimen>
+    <dimen name="margin_s_fifteenfive">25dp</dimen>
+    <dimen name="margin_s_thirty">@dimen/_30sdp</dimen>
+    <dimen name="margin_s_thirty_five">45dp</dimen>
+    <dimen name="margin_s_twenty">@dimen/_20sdp</dimen>
+    <dimen name="margin_s_twentyfive">35dp</dimen>
+    <dimen name="margin_fifty">@dimen/_40sdp</dimen>
+    <dimen name="margin_sixty">@dimen/_50sdp</dimen>
+    <dimen name="margin_sevteen">70dp</dimen>
+    <dimen name="top_magin">3dp</dimen>
+    <dimen name="margin_s_eightyfive">@dimen/_85sdp</dimen>
+    <dimen name="margin_twohundred">200dp</dimen>
+    <dimen name="margin_ninty">90dp</dimen>
+    <dimen name="margin_onetwenty">125dp</dimen>
+    <dimen name="margin_onefifty">@dimen/_130sdp</dimen>
+    <dimen name="margin_five">@dimen/_5sdp</dimen>
+    <dimen name="margin_seven">7dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="small2">4dp</dimen>
+    <dimen name="thumbnail_size">80dp</dimen>
+    <dimen name="recycler_size">100dp</dimen>
+    <dimen name="thumbnail_horizontal_padding">8dp</dimen>
+    <dimen name="thumbnail_vertical_padding">10dp</dimen>
+    <dimen name="padding_s_7">@dimen/_7sdp</dimen>
+    <dimen name="margin_horizontal">16dp</dimen>
+    <dimen name="lbl_edit_image_control">100dp</dimen>
+    <dimen name="activity_horizontal_margin">@dimen/_12sdp</dimen>
+    <dimen name="activity_vertical_margin">@dimen/_12sdp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">@dimen/_6sdp</dimen>
+    <dimen name="nav_header_height">@dimen/_160sdp</dimen>
+    <dimen name="height_profile_image">@dimen/_100sdp</dimen>
+    <dimen name="height_profile_image_small">@dimen/_65sdp</dimen>
+    <dimen name="height_product_image">@dimen/_165sdp</dimen>
+    <dimen name="list_item_spacing">@dimen/_13sdp</dimen>
+    <dimen name="list_item_spacing_half">@dimen/_6sdp</dimen>
+
+
+    <dimen name="margin_std">16dp</dimen>
+    <dimen name="margin_std_half">8dp</dimen>
+    <dimen name="margin_std_2x">32dp</dimen>
+    <dimen name="cardview_padding">8dp</dimen>
+    <dimen name="cardview_corner_radius">8dp</dimen>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="item"
+                type="com.smox.smoxuser.model.VerifyField"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_margin"
+            android:weightSum="2"
+            tools:ignore="RtlHardcoded"
+            >
+        <TextView
+                style="@style/TextStyle"
+                android:id="@+id/txtName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@{item.title}"/>
+        <EditText
+                style="@style/EditStyle"
+                android:id="@+id/txtValue"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:text="@={item.value}"
+                android:hint="@{item.title}"
+                tools:targetApi="o"/>
+    </LinearLayout>
+</layout>
+

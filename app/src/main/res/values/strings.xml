@@ -1,0 +1,574 @@
+<resources>
+    <string name="app_name">SmoxTrimsetters</string>
+
+
+    <!--<string name="facebook_app_id">2507854355903107</string>-->  <!--// Client's Facebook API Key-->
+    <!--<string name="facebook_app_id">331408727675625</string>--> <!--// Company's Facebook API Key-->
+    <string name="facebook_app_id">2491808960885470</string> <!--// Client's new Facebook API Key-->
+
+    <!--<string name="fb_login_protocol_scheme">fb2507854355903107</string>--> <!--// Client's Facebook API Key-->
+    <!--<string name="fb_login_protocol_scheme">fb331408727675625</string>--> <!--// Company's Facebook API Key-->
+    <string name="fb_login_protocol_scheme">fb2491808960885470</string> <!--// Client's new Facebook API Key-->
+    <string name="facebook_client_token">42baf8144d4340c445b4751703be116d</string>
+
+    <string name="sender_id">768706859889</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAcT5skfyEGHN3Mn5h3yubSzqxTYO41lUc
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="city_tack">City Tack</string>
+
+    <string name="forgotpassword">Forgot Password?</string>
+    <string name="activity_title_main">Filters</string>
+    <string name="action_settings">Settings</string>
+    <string name="filters">FILTERS</string>
+    <string name="edit">EDIT</string>
+    <string name="ok">OK</string>
+    <string name="lbl_brightness">BRIGHTNESS</string>
+    <string name="lbl_contrast">CONTRAST</string>
+    <string name="lbl_saturation">SATURATION</string>
+    <string name="tab_filters">FILTERS</string>
+    <string name="tab_edit">EDIT</string>
+    <string name="Ltinerary">ltinerary</string>
+    <string name="Budget">budget</string>
+    <string name="People">People</string>
+    <string name="Polls">Polls</string>
+    <string name="GroupChat">Group Chat</string>
+    <string name="Suggestion">Suggestions</string>
+
+    <string name="roboto_medium">sans-serif-medium</string>
+    <string name="filter_normal">Normal</string>
+    <string name="action_save">SAVE</string>
+    <string name="action_next">NEXT</string>
+
+    <string name="action_open">OPEN</string>
+
+
+    <string name="need_permission_to_access">Need permission to access this page</string>
+    <string name="storage_permission_access">Now you have a permission to access storage</string>
+    <string name="camera_permission_access">Now you have a permission to access camera</string>
+    <string name="camera_permission_denied">Camera permission request was denied.</string>
+    <string name="storage_camera_permisssion">Now you have a permission to access camera and storage</string>
+    <string name="location_permission_access">Now you have a permission to access location</string>
+    <string name="location_permission_denied">Location permission request was denied.</string>
+    <string name="camera_not_found">Camera not found</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+
+    <string name="select_user">You can\'t create a chat with this user, who is not registered on the chat server.
+    </string>
+
+
+    <string name="dlg_error">Error</string>
+    <string name="dlg_ok">OK</string>
+    <string name="error_parsing_configs">Parsing sample\'s configs error</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+
+    <string name="continue_with_social">Continue with social</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="or">or</string>
+    <string name="login_using_email_or_phone">Login using email or phone</string>
+    <string name="remindLater">Remind me later</string>
+    <string name="don_t_have_account">Don\'t have account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="todo">TODO</string>
+    <string name="phone_or_email_address">Phone or Email Address</string>
+    <string name="password">Password</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="customer">Customer</string>
+    <string name="barber">Styler</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="forgot">FORGOT</string>
+    <string name="keep_me_logged_in">Keep me logged in</string>
+    <string name="login">Login</string>
+    <string name="title_activity_forgot">ForgotActivity</string>
+    <string name="forgot_password_instruction">Please enter your email and we will send instructions to recover your
+        account.
+    </string>
+    <string name="submit">Submit</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="by_signing_up_you_agree_to_our">By signing up you agree to our</string>
+    <string name="terms">Terms</string>
+    <string name="and">and</string>
+    <string name="policy">Policy</string>
+    <string name="title_activity_barber_main">BarberMainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="calendar">Calendar</string>
+    <string name="funds">Funds</string>
+    <string name="upnext">Up Next</string>
+    <string name="smoxtalk">SmoxTalk</string>
+    <string name="my_barber">My Styler</string>
+    <string name="supplies_coming">Supplies(coming...)</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="verify">Verify</string>
+    <string name="verified">Verified</string>
+    <string name="appointment">APPOINTMENTS</string>
+    <string name="cal_appointment">APPOINTMENT</string>
+    <string name="cal_events">EVENTS</string>
+    <string name="cal_event">EVENT</string>
+    <string name="wait_list">WAIT LIST</string>
+    <string name="n_a">N/A</string>
+    <string name="up_next">UP NEXT</string>
+    <string name="last_client">LAST CLIENT</string>
+    <string name="recent">RECENT</string>
+    <string name="favorites">Favorites</string>
+    <string name="group">GROUP</string>
+    <string name="contacts">CONTACTS</string>
+    <string name="title_activity_group">Create Group</string>
+    <string name="add">Add</string>
+    <string name="group_name">Group Name</string>
+    <string name="title_activity_add_contact">Add Contact</string>
+    <string name="search_friends_by_name">Search friends by name</string>
+    <string name="search_service_by_name">Search by Styler, Style or Location</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="change">change</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="retype_password">Retype Password</string>
+
+    <string name="permission_title_rationale">Permission needed</string>
+    <string name="permission_read_storage_rationale">Storage read permission is needed to pick files.</string>
+    <string name="permission_write_storage_rationale">Storage write permission is needed to save the image.</string>
+    <string name="permission_read_contacts_rationale">CONTACTS permission allows us to Access CONTACTS app.</string>
+
+    <string name="toast_cannot_retrieve_selected_image">Cannot retrieve selected image</string>
+    <string name="toast_cannot_retrieve_cropped_image">Cannot retrieve cropped image</string>
+    <string name="toast_unexpected_error">Unexpected error</string>
+    <string name="label_select_picture">Select Picture</string>
+    <string name="label_select_video">Select Video</string>
+    <string name="cancel">Cancel</string>
+    <string name="send_payment_request">Request Payment</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="booking_preferences">Booking Preferences</string>
+    <string name="social_media">Social Media</string>
+    <string name="mobile_pay">Mobile Pay</string>
+    <string name="location">Location</string>
+    <string name="about_me">About Me</string>
+    <string name="reviews_ratings"><![CDATA[Reviews & Ratings]]></string>
+    <string name="title_activity_booking_preference">Booking Preferences</string>
+    <string name="your_photo">Your Photo</string>
+    <string name="your_logo">Your Logo</string>
+    <string name="hours_of_operation">Hours Of Operation</string>
+    <string name="title_activity_service_edit">Add Service</string>
+    <string name="haircut">Haircut</string>
+    <string name="price">Price</string>
+    <string name="mins">mins</string>
+    <string name="clean">Cleanliness</string>
+    <string name="work">Work</string>
+    <string name="behave">Behaviour</string>
+    <string name="description">Description</string>
+    <string name="title_activity_social_media">Social Media</string>
+    <string name="twitter">Twitter</string>
+    <string name="instagram">Instagram</string>
+    <string name="title_activity_social_link_edit">SocialLinkEditActivity</string>
+    <string name="title_activity_bio">Write a short bio</string>
+
+    <string name="format_minute">%d mins</string>
+    <string name="format_price">$%.02f</string>
+    <string name="format_ship_price">+$%.02f</string>
+    <string name="format_disc_price">-$%.02f</string>
+    <string name="format_rating">%d Rating</string>
+    <string name="format_ratings">(%.1f) %d Ratings</string>
+    <string name="format_ratingss">(%.1f) </string>
+    <string name="format_ratingsss">%.1f </string>
+    <string name="format_two_digit">%02d </string>
+    <string name="format_time">Time: %s</string>
+    <string name="format_date">Date: %s</string>
+    <string name="format_username"><font color='green'>$</font><font color='white'>%s</font></string>
+    <string name="format_open_time">%1$s to %2$s</string>
+    <string name="format_quantity">%d</string>
+    <string name="format_fee">%d%%</string>
+    <string name="format_event">Event: %s</string>
+    <string name="format_start_at">Start: %s</string>
+    <string name="format_end_at">End: %s</string>
+    <string name="stockAvail">Stocks available: %d</string>
+
+    <string name="price_txt">$%1$s</string>
+    <string name="title_activity_base_image_picker">BaseImagePickerActivity</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="select_from_gallery">Select from gallery</string>
+    <string name="title_activity_reviews">ReviewsActivity</string>
+    <string name="more">more</string>
+    <string name="title_activity_appointment_detail">Appointment</string>
+    <string name="contact">CONTACT</string>
+    <string name="official_date">Official Date</string>
+    <string name="approved">Approved</string>
+    <string name="services">Services</string>
+    <string name="services_colon">Services:</string>
+    <string name="edit_booking">Edit Booking</string>
+    <string name="complete">Complete</string>
+    <string name="title_activity_booking_appointment">Booking Appointment</string>
+    <string name="book_appointment">BOOK APPOINTMENT</string>
+    <string name="time">Time</string>
+    <string name="click_time_for_setting">⇦ click time for setting it manually</string>
+    <string name="book_now">Book Now</string>
+    <string name="comment_here">Comment here</string>
+    <string name="title_activity_services">ServicesActivity</string>
+    <string name="title_activity_add_services">AddServicesActivity</string>
+    <string name="title_activity_bank">BankActivity</string>
+    <string name="title_activity_stripe_connect">StripeConnectActivity</string>
+    <string name="my_styled_text">Hello, <b>World</b>!
+    </string>
+    <string name="stripe_terms">
+        <![CDATA[<p><span style="color: #ffffff;">By registering your account, you agree to </span><span style="color: #cc9c54;"><u>Stripe Agreement</u></span><span style="color: #ffffff;"> and the </span><span style="color: #cc9c54;"><u>Stripe Connected Account Agreement</u></span></p>]]></string>
+    <string name="legal_personal_information">LEGAL PERSONAL INFORMATION</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="ssn_last_4">SSN Last 4</string>
+    <string name="address">Address</string>
+    <string name="home_address_not_your_business_address">Home address(not your business address)</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">ZIP</string>
+    <string name="united_states">United States</string>
+    <string name="business_website">Business Website</string>
+    <string name="website_comment">No website? Enter an App Store link, a social profile.</string>
+    <string name="your_card">Your Card</string>
+    <string name="title_activity_account_verification">Identity Verification</string>
+    <string name="id_verification">Provide more information in order to enable payments and payouts for this account.
+    </string>
+    <string name="information_needed">Information Needed</string>
+    <string name="title_activity_payment_method">PaymentMethodActivity</string>
+    <string name="add_a_card">Add a Card</string>
+    <string name="select">Select</string>
+    <string name="title_activity_customer_main">CustomerMainActivity</string>
+    <string name="barber_search">Search</string>
+    <string name="appointments">Appointments</string>
+    <string name="products_coming">Products</string>
+    <string name="cart">Cart</string>
+    <string name="products">Products</string>
+    <string name="pending">Pending</string>
+    <string name="completed">Completed</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_barber_detail">BarberDetailActivity</string>
+    <string name="see_all">See All</string>
+    <string name="about">About</string>
+    <string name="information">Information</string>
+    <string name="monday_to_saturday">Monday to Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="close">Close</string>
+    <string name="channel_name">Smox Trimsetters</string>
+    <string name="channel_description">Smox Trimsetters Notification</string>
+    <string name="rate">Rate</string>
+
+    <string name="payment_session_select_payment">Select Payment Method</string>
+    <string name="payment_session_select_shipping">Set Shipping Information</string>
+    <string name="payment_session_data">Payment Session Data</string>
+    <string name="progressMessage">Creating Token&#8230;</string>
+    <string name="validationErrors">Validation Errors</string>
+    <string name="endingIn">Card ending in</string>
+    <string name="add_card">Add Card</string>
+    <string name="check_out">Check Out</string>
+    <string name="title_activity_check_out">CHECKOUT</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="use_this_address">Use this address?</string>
+    <string name="official_time">official time</string>
+    <string name="title_activity_open_hours">Open Hours</string>
+    <string name="upnext_count">Up Next :</string>
+    <string name="see_detail">See Detail</string>
+    <string name="title_activity_up_next">UpNext</string>
+    <string name="product_name">Product Name</string>
+    <string name="title_activity_up_next_options">UpNextOptionsActivity</string>
+    <string name="type_in_the_reason_you_would_like_to_show_to_the_clients">Type in the reason you would like to show to
+        the clients.
+    </string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="wait_time">wait time</string>
+    <string name="completed_at">Completed At</string>
+    <string name="official_at">Official At</string>
+    <string name="cancellation_fee">Cancellation Fee</string>
+    <string name="cancellation_fee_label">Cancellation Fee :</string>
+    <string name="appointment_complete_confirm">The appointment has been completed \nor\ndoes the client fail to be present
+        for the time of the scheduled services?
+    </string>
+    <string name="done">Done</string>
+    <string name="no_show">No Show</string>
+    <string name="https_example_com">https://example.com</string>
+    <string name="youtube">YouTube</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="events">Events</string>
+    <string name="event_status"><![CDATA[Event & Status]]></string>
+    <string name="title_event">Event:</string>
+    <string name="start">Start:</string>
+    <string name="end_date">End Date</string>
+    <string name="post">Post</string>
+    <string name="start_date">Start Date</string>
+    <string name="cal_start_date">Start:</string>
+    <string name="cal_end_date">End  :</string>
+
+    <!--    Intro-->
+    <string name="intro_styler_title1">Event</string>
+    <string name="intro_styler_title2">Booking</string>
+    <string name="intro_styler_title3">Account</string>
+    <string name="intro_styler_title4">Upnext</string>
+
+    <string name="intro_styler_content1">Receive notifications from stylers saved to favorites</string>
+    <string name="intro_styler_content2">Book &amp; pre-pay own appointments</string>
+    <string name="intro_styler_content3">Remain anonymous to public by creating unique user name</string>
+    <string name="intro_styler_content4">Manage your time by seeing real-time view of customers waiting</string>
+
+    <string name="intro_customer_title1">Event</string>
+    <string name="intro_customer_title2">Booking</string>
+    <string name="intro_customer_title3">Account</string>
+    <string name="intro_customer_title4">Upnext</string>
+
+    <string name="intro_customer_content1">Allow clients to receive notifications from stylers saved to favorites</string>
+    <string name="intro_customer_content2">Book &amp; pre-pay own appointments</string>
+    <string name="intro_customer_content3">Clients remain anonymous to public by creating unique user name</string>
+    <string name="intro_customer_content4">Indicates real-time view of customer wait list</string>
+
+    <string name="startDateValidation">Start Date must be bigger than End Date</string>
+    <string name="endDateValidation">End Date must be bigger than Start Date</string>
+    <string name="add_event_detail">Event title cannot be empty</string>
+    <string name="back_again_exit">Please click back again to exit</string>
+    <string name="edit_shop_address">Edit barbershop address</string>
+    <string name="edit_bio">Edit your bio</string>
+    <string name="service_name">Service Name</string>
+    <string name="select_cat">Select Category</string>
+    <string name="err_selected_time">Select time between selected timeslot.</string>
+    <string name="connectToStripe">Connect To Stripe</string>
+    <string name="stripeConnected">Stripe Connected</string>
+    <string name="stripeConfiguration">Stripe Configuration</string>
+    <string name="title_terms">TERMS</string>
+    <string name="product_err_image">Please select product image</string>
+    <string name="product_err_product">Please type product name</string>
+    <string name="product_err_price">Please type the product\'s price.</string>
+    <string name="styler_product_no_found">Currently there are no products</string>
+    <string name="customer_product_no_found">Currently there are no products</string>
+    <string name="event_no_found">Currently there are no events</string>
+    <string name="data_not_found">Currently there is no data</string>
+    <string name="data_review_found">Currently there is no review</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="save_address">Save Address</string>
+    <string name="update_address">Update Address</string>
+    <string name="add_address">Add Address</string>
+    <string name="err_customer_name">Name field cannot be empty</string>
+    <string name="err_address">Address field cannot be empty</string>
+    <string name="err_postal_code">Postal Code field cannot be empty</string>
+    <string name="lbl_name">Name:</string>
+    <string name="lbl_address">Address:</string>
+    <string name="lbl_postal_code">Postal Code:</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_quantity">Product Quantity</string>
+    <string name="total">Total</string>
+    <string name="product_purchase_success">Your Purchase Was Successful!</string>
+    <string name="my_orders">My Orders</string>
+    <string name="smox_talks">Smox Talks</string>
+    <string name="no_address">Currently you don\'t have any addresses saved</string>
+    <string name="no_orders">Currently you don\'t have any orders</string>
+    <string name="order_user_seller">Seller:</string>
+    <string name="order_user_buyer">Buyer:</string>
+    <string name="order_price">Price:</string>
+    <string name="order_quantity">Quantity:</string>
+    <string name="order_total_price">Total Price:</string>
+    <string name="order_delivered">Delivered</string>
+    <string name="order_not_delivered">Not Delivered</string>
+    <string name="error_select_address">Please select an address to checkout</string>
+    <string name="already_delivered">This order is already marked as delivered</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_deliver">Are you sure you want to mark this order as delivered?</string>
+    <string name="err_cancellation_fee">Please type cancellation fee amount</string>
+    <string name="err_short_bio">Please type a short bio</string>
+    <string name="pickup_delivery">Pickup/Delivery</string>
+    <string name="pickDeliveryMsg">How would you like to get this product?</string>
+    <string name="pickup">Pickup</string>
+    <string name="delivery">Delivery</string>
+    <string name="pay_with_google_content_description">Pay with Google</string>
+    <string name="pay_with_google">Pay with Google</string>
+    <string name="err_select_contact">Please select a contact</string>
+    <string name="err_group_name">Please type group name</string>
+    <string name="title_chat_info">Chat Info</string>
+    <string name="wait_a_minute">Please wait moment…</string>
+
+    <string name="nav_upnext">UP NEXT</string>
+    <string name="nav_calendar">CALENDAR</string>
+    <string name="nav_smoxtalk">SMOXTALK</string>
+    <string name="nav_funds">FUNDS</string>
+    <string name="nav_my_barber">MY STYLER</string>
+    <string name="nav_products">PRODUCTS</string>
+    <string name="nav_my_orders">MY ORDERS</string>
+    <string name="nav_edit_account">EDIT ACCOUNT</string>
+    <string name="nav_about_us">ABOUT US</string>
+    <string name="nav_contact_us">CONTACT US</string>
+    <string name="nav_logout">LOGOUT</string>
+    <string name="subscription">Subscription</string>
+    <string name="subscribe_now">Subscribe Now</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="subscribed">Subscribed</string>
+    <string name="subscribe_desc">Please subscribe to continue using SmoxTrimSetters as a styler</string>
+    <string name="monthly_subscr">Monthly Subscription</string>
+    <string name="month">month</string>
+
+    <string name="fun_products">Fun Products</string>
+    <string name="fun_subscriptions">Fun Subscriptions</string>
+    <string name="alert_drove">Vroooom, you drove a few miles!</string>
+    <string name="alert_no_gas">Oh, no! You are out of gas! Try buying some!</string>
+    <string name="skip">Skip</string>
+    <string name="err_subscribe">Please subscribe to book appointments</string>
+    <string name="subscribe_success">Your purchase was successful.</string>
+    <string name="shipping_charges">Shipping Charges</string>
+    <string name="tax">Tax</string>
+    <string name="product_price_with_quantity" translatable="false">%s x %s</string>
+    <string name="product_tax_with_quantity" translatable="false">%s x %s</string>
+    <string name="no_search_found">No search found</string>
+    <string name="currently_there_are_no_reviews">Currently there are no reviews</string>
+    <string name="currently_there_are_no_services">Currently there are no services</string>
+    <string name="no_services_selected">No Services Selected</string>
+    <string name="err_event">Please subscribe to create events</string>
+    <string name="your_subscription_end">Your subscription will end on</string>
+    <string name="text_enter_your_card_details">Enter your credit card details</string>
+
+    <string name="text_card_holder_name">Card Holder Name</string>
+    <string name="text_card_number">Card Number</string>
+    <string name="text_expiry_date">Expiry Date</string>
+    <string name="text_expiry_date_dash">Expiry Date :</string>
+    <string name="text_stripe_public_key">Stripe Public Key</string>
+    <string name="text_stripe_secret_key">Stripe Secret Key</string>
+    <string name="text_type_stripe_public_key">Please enter stripe account public key</string>
+    <string name="text_type_stripe_secret_key">Please enter stripe account secret key</string>
+    <string name="text_stripe_keys_title">Setup Stripe Account Keys</string>
+    <string name="text_cvv">CVV</string>
+    <string name="text_mm_yy">MM/YY</string>
+    <string name="choose_card">Choose Card</string>
+    <string name="text_add_card">ADD NEW CARD</string>
+    <string name="err_valid_name">Please enter valid name.</string>
+    <string name="err_enter_card_holder_name">Please enter card holder name.</string>
+    <string name="err_enter_card_number">Please enter card number.</string>
+    <string name="err_enter_valid_card">Please enter valid card number.</string>
+    <string name="err_enter_expiry_date">Please enter expiry date.</string>
+    <string name="err_enter_valid_expiry_date">Please enter valid expiry date.</string>
+    <string name="err_enter_cvv">Please enter CVV.</string>
+    <string name="err_enter_valid_cvv">Please enter valid CVV.</string>
+    <string name="text_debit_credit_cards">Debit/Credit Cards</string>
+    <string name="text_add_cards">ADD CARD</string>
+    <string name="text_pay">PAYMENT</string>
+    <string name="text_select_card">Please select payment card..</string>
+    <string name="no_card_selected">Oops, You haven\'t selected any card yet.</string>
+    <string name="text_proceed">PROCEED</string>
+    <string name="text_added_card">Card Added Successfully.</string>
+    <string name="are_you_a_atyler">Are you a styler?</string>
+    <string name="text_key_not_get_error">Oops, you can\'t proceed to checkout due to Styler not setup any payment receiving methods with us. Thank you for the time.</string>
+
+
+    <!--New String Value-->
+    <string name="login_as">Login</string>
+    <string name="wlcm_back">Hey ! Welcome Back</string>
+    <string name="styler"> Styler</string>
+    <string name="customers">Customer</string>
+
+    <string name="already_an_account">Already have an account ?</string>
+    <string name="forget_pass">Forget Password ?</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="add_your_email_id">Add your email ID</string>
+    <string name="donot_have_account">
+    <font color="#FFFFFF">Don\'t have an account?</font>
+    <font color="#FFBB0C">REGISTER</font>
+    </string>
+    <string name="already_have_account">
+    <font color="#FFFFFF">Already have an account ?</font>
+    <font color="#FFBB0C">LOGIN</font>
+    </string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="send">Send</string>
+    <string name="or_login_using">Or login using</string>
+    <string name="register">Register</string>
+    <string name="welcome_text">New User ? Fill this form and join us</string>
+    <string name="txt_full_name">Full name</string>
+    <string name="mobile">Mobile</string>
+    <string name="or_register_using">Or register using</string>
+    <string name="add_your_mobile_number">Mobile Number</string>
+    <string name="view_all">View All</string>
+    <string name="styler_s_nearby">Styler\'s Nearby</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="added_to_cart">Added</string>
+    <string name="out_of_stock">Out of Stock</string>
+    <string name="no_favourite_record_found">You have\'t added any business in your favourite list!</string>
+    <string name="nameFormat">%s %s</string>
+    <string name="distanceFormat">%s away</string>
+    <string name="profile">Profile</string>
+    <string name="personal_details">PERSONAL DETAILS</string>
+    <string name="string_replace">%s</string>
+    <string name="gallery">Gallery</string>
+    <string name="review">Review</string>
+    <string name="men">Men</string>
+    <string name="women">Women</string>
+    <string name="teens">Teens</string>
+    <string name="youth">Youth</string>
+    <string name="workHour">Work Hours</string>
+    <string name="holiday">Off Days(Holidays)</string>
+
+    <string name="mon">Monday: </string>
+    <string name="tue">Tuesday: </string>
+    <string name="wed">Wednesday: </string>
+    <string name="thur">Thursday: </string>
+    <string name="fri">Friday: </string>
+    <string name="sat">Saturday: </string>
+    <string name="sun">Sunday: </string>
+
+    <string name="noHoliday">No Holidays</string>
+    <string name="service_booked">Service Booked</string>
+    <string name="select_date">Date Select</string>
+    <string name="select_time_slots">Select time slots</string>
+    <string name="update">Update</string>
+    <string name="remember_me">Remember me</string>
+
+    <string name="currently_product_no_found">Currently there are no products</string>
+    <string name="ratingUser">%d user\'s rated this product</string>
+    <string name="type_a_message">Type a message…</string>
+    <string name="deleteCart">Delete Cart</string>
+    <string name="deleteCartMsg">Are you sure to delete this item?</string>
+    <string name="addToCart">Add to Cart</string>
+    <string name="addedCart">Added</string>
+    <string name="cartCount">%d</string>
+    <string name="timer">%02d:%02d</string>
+    <string name="waitTimer">Your payment is failed. please try after ( %s ) seconds.</string>
+
+    <string name="error_fname">Please enter first name.</string>
+    <string name="error_lname">Please enter last name.</string>
+    <string name="error_add1">Please enter house no., building no, etc.</string>
+    <string name="error_add2">Please enter your area.</string>
+    <string name="error_city">Please enter city.</string>
+    <string name="error_state">Please enter state.</string>
+    <string name="error_country">Please enter country.</string>
+    <string name="error_zip">Please enter zip.</string>
+    <string name="error_phone">Please enter phone number.</string>
+    <string name="error_phoneValid">Please enter valid phone number.</string>
+
+    <string name="saveAddress">Save Address</string>
+    <string name="updateAddress">Update Address</string>
+    <string name="upcomingOrders">Upcoming Orders</string>
+    <string name="pastOrders">Past Orders</string>
+
+    <string name="orderId">Order#%d</string>
+    <string name="itemCount">%d items added</string>
+    <string name="cancelOrder">Cancel Order</string>
+    <string name="cancelOrderMsg">Are you sure to cancel this order?</string>
+    <string name="deleteAcc">Delete Account</string>
+    <string name="deleteAccMsg">Are you sure to delete your account permanently?</string>
+
+    <string name="authError">Access denied. You have logged into another device.</string>
+
+
+
+</resources>

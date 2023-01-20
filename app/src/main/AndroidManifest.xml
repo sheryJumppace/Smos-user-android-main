@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.smox.smoxuser">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- <permission -->
+    <!-- android:name="com.smox.smoxtrimsetters.permission.C2D_MESSAGE" -->
+    <!-- android:protectionLevel="signature"/> -->
+    <!-- <uses-permission android:name="com.smox.smoxtrimsetters.permission.C2D_MESSAGE"/> -->
+    <!-- <uses-permission android:name="com.smox.smoxtrimsetters.c2dm.permission.RECEIVE"/> -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:stopWithTask="false"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup"
+        tools:targetApi="m">
+        <activity
+            android:name=".ui.activity.orders.OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.customer.SingleChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.ServiceCheckoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.customer.EditAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.customer.EventDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.customer.AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.customer.FullScreenImageActivity"
+            android:exported="false" />
+        <activity android:name=".ui.activity.customer.SearchAnyActivity" />
+        <activity android:name=".ui.activity.customer.EventsActivity" />
+        <activity android:name=".ui.activity.customer.ContactUsActivity" />
+        <activity android:name=".ui.activity.customer.UpdatePasswordActivity" />
+        <activity android:name=".ui.activity.customer.CustProfileActivity" />
+        <activity android:name=".ui.activity.customer.FavoritesActivity" />
+        <activity android:name=".ui.activity.customer.ThanksPageActivity" />
+        <activity android:name=".ui.activity.customer.BookAppointmentPaymentActivity" />
+        <activity android:name=".ui.activity.customer.BarbersOnMapActivity" />
+        <activity android:name=".ui.activity.customer.AppointmentListActivity" />
+        <activity android:name=".ui.activity.customer.AppointmentDetailsNewActivity" />
+        <activity android:name=".ui.activity.customer.BookAppointmentActivity" />
+        <activity
+            android:name=".ui.activity.customer.DetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.home.Home2Activity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.auth.SubscriptionActivity"
+            android:label="@string/subscription" /> <!-- tools:ignore="AllowBackup,GoogleAppIndexingWarning" -->
+        <activity android:name=".ui.activity.product.AddAddressActivity" />
+        <activity android:name=".ui.activity.product.AddressMainActivity" />
+        <activity
+            android:name=".ui.activity.barber.UpNextOptionsActivity"
+            android:label="@string/title_activity_up_next_options"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.customer.UpNextActivity"
+            android:label="@string/title_activity_up_next"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.OpenHoursActivity"
+            android:label="@string/title_activity_open_hours"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.customer.CheckOutActivity"
+            android:label="@string/title_activity_check_out"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="true" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".ui.activity.LocationPickerActivity"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".ui.activity.customer.CustomerMainActivity"
+            android:label="@string/title_activity_customer_main"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.barber.PaymentMethodActivity"
+            android:label="@string/title_activity_payment_method"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.AccountVerificationActivity"
+            android:label="@string/title_activity_account_verification"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.BankActivity"
+            android:label="@string/title_activity_bank"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.StripeConnectActivity"
+            android:label="@string/text_stripe_keys_title"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.AddServicesActivity"
+            android:label="@string/title_activity_add_services"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.BookingAppointmentActivity"
+            android:label="@string/title_activity_booking_appointment"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.AppointmentDetailActivity"
+            android:label="@string/title_activity_appointment_detail"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.ReviewsActivity"
+            android:label="@string/title_activity_reviews"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.BaseImagePickerActivity"
+            android:label="@string/title_activity_base_image_picker"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.BioActivity"
+            android:label="@string/title_activity_bio"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.SocialLinkEditActivity"
+            android:label="@string/title_activity_social_link_edit"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.SocialMediaActivity"
+            android:label="@string/title_activity_social_media"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.AddCardActivity"
+            android:label="@string/text_add_cards"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.AppointmentCheckoutActivity"
+            android:label="@string/title_activity_check_out"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.ProductCheckoutActivity"
+            android:label="@string/title_activity_check_out"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.CardListActivity"
+            android:label="@string/text_pay"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.chat.AddContactActivity"
+            android:exported="false"
+            android:label="@string/title_activity_add_contact"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.chat.GroupActivity"
+            android:label="@string/title_activity_group"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".ui.activity.barber.BarberMainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.auth.ForgotActivity"
+            android:label="@string/title_activity_forgot" />
+        <activity
+            android:name=".ui.activity.auth.SignupActivity"
+            android:exported="true"
+            android:label="@string/title_activity_signup">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.auth.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:label="@string/title_activity_home" />
+        <activity android:name=".ui.activity.WebViewActivity" />
+        <activity android:name=".ui.activity.auth.UserTypeActivity" />
+
+        <service
+            android:name=".manager.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".manager.PushListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.quickblox.messages.services.fcm.QBFcmPushInstanceIDService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVEN" />
+            </intent-filter>
+        </service>
+        <!--
+<service android:name="com.quickblox.messages.services.fcm.QBFcmPushListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        -->
+        <meta-data
+            android:name="com.quickblox.messages.TYPE"
+            android:value="GCM" />
+        <meta-data
+            android:name="com.quickblox.messages.SENDER_ID"
+            android:value="@string/sender_id" />
+        <meta-data
+            android:name="com.quickblox.messages.QB_ENVIRONMENT"
+            android:value="DEVELOPMENT" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="60e5d920c4fad1bbf9047359ef47cc28ed07b048" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token"
+            tools:replace="android:value" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification_icon" />
+        <!--
+<meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/transparent" />
+        -->
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!--
+<meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+        -->
+        <!-- Ad TestID -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5143325504702130~5531489479" /> <!-- Ad LiveID -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+                <data
+                    android:host="smox.page.link"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.BaseActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.auth.BaseLoginActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ui.activity.chat.QBDialogManageActivity" />
+        <activity
+            android:name=".ui.activity.product.ProductsActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:taskAffinity="" />
+        <activity
+            android:name=".ui.activity.chat.ChatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.activity.chat.ChatInfoActivity"
+            android:label="@string/title_chat_info" />
+        <activity android:name=".ui.activity.chat.AttachmentImageActivity" />
+        <activity android:name=".ui.activity.barber.EventsActivity" />
+        <activity android:name=".ui.activity.IntroViewActivity" />
+        <activity android:name=".ui.activity.StartActivity" />
+        <activity android:name=".ui.activity.barber.CategoryActivity" />
+        <activity android:name=".ui.activity.barber.CategorySelectorActivity" />
+    </application>
+
+</manifest>

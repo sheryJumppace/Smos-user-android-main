@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.barber.BookingAppointmentActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@string/title_activity_booking_appointment"
+                app:toolbarId="@+id/toolbar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/default_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".ScrollingActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.applandeo.materialcalendarview.CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:abbreviationsBarColor="@color/dark_gray"
+                    app:abbreviationsLabelsColor="@android:color/white"
+                    app:anotherMonthsDaysLabelsColor="@color/disableDate"
+                    app:daysLabelsColor="@android:color/white"
+                    app:eventsEnabled="true"
+                    app:headerColor="@color/black"
+                    app:pagesColor="@color/black"
+                    app:todayLabelColor="@color/gold"
+                    app:type="one_day_picker"
+                    tools:visibility="visible" />
+
+                <LinearLayout
+                    android:id="@+id/viewCustomer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="@string/customer"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/default_margin">
+
+                        <ImageView
+                            android:id="@+id/imgProfile"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            tools:ignore="ContentDescription,RtlHardcoded" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/default_margin"
+                            android:layout_marginLeft="@dimen/default_margin"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:paddingRight="@dimen/_5sdp"
+                            tools:ignore="RtlHardcoded">
+
+                            <TextView
+                                android:id="@+id/txtName"
+                                style="@style/TextStyle"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtPhone"
+                                style="@style/TextStyle"
+                                android:layout_marginTop="@dimen/default_margin"
+                                android:textColor="@color/lightGray" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="@string/time"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <TextView
+                        android:id="@+id/txtTime"
+                        style="@style/TextStyle"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:layout_marginRight="@dimen/default_margin"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="@string/click_time_for_setting"
+                        android:textColor="@color/lightGray"
+                        android:textSize="@dimen/small_font_size" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/time_slot_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/list_item_time_slot" />
+
+                    <TextView
+                        android:id="@+id/txtSlotError"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@color/black"
+                        android:textSize="@dimen/medium_font_size" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/TextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="@string/services_colon"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/service_category_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:layout_toStartOf="@+id/btnAdd"
+                        android:layout_toEndOf="@+id/txtTitle"
+                        android:clipToPadding="false"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/list_item_categories" />
+
+                    <TextView
+                        android:id="@+id/tvNotFound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/btnAdd"
+                        android:layout_toEndOf="@+id/txtTitle"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:text="@string/no_services_selected"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/btnAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/ic_add" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/category_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:clipToPadding="false"
+                    android:paddingTop="@dimen/_10sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar"
+                    tools:listitem="@layout/list_item_service" />
+
+                <EditText
+                    android:id="@+id/txtComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_s_eightyfive"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:background="@drawable/bg_round_border"
+                    android:gravity="start"
+                    android:hint="@string/comment_here"
+                    android:padding="@dimen/default_margin"
+                    android:textAlignment="textStart" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/service_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/list_item_service_small" />
+
+
+                <Button
+                    android:id="@+id/btnBook"
+                    style="@style/ButtonStyle"
+                    android:layout_margin="@dimen/margin_s_fifteen"
+                    android:text="@string/book_now"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

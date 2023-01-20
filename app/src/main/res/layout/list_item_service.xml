@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="service"
+            type="com.smox.smoxuser.model.Service" />
+
+        <variable
+            name="isSmall"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isSelect"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isEdit"
+            type="java.lang.Boolean" />
+    </data>
+
+    <!--<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}"
+        android:padding="@dimen/default_margin">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/height_profile_image_small"
+            android:layout_height="@dimen/height_profile_image_small"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitCenter"
+            app:imageUrl='@{service.image}'
+            app:isCircle="@{false}"
+            app:placeHolder="@{@drawable/big_placeholder}"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_toEndOf="@+id/imgProfile"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            tools:ignore="RtlHardcoded">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    style="@style/TextStyle"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:layout_toLeftOf="@+id/txtPrice"
+                    android:text="@{service.title.toUpperCase()}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    style="@style/TextStyle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@{@string/format_price(service.price)}"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp">
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    style="@style/TextStyle"
+                    android:text="@{@string/format_minute(service.duration)}" />
+
+                <ImageView
+                    android:id="@+id/btnFavorite"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@{service.isSelected ? @drawable/icon_circle_check :@drawable/icon_circle_uncheck}"
+                    app:isGone="@{!isSelect}" />
+
+                <ImageView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{clickListener}"
+                    android:src="@drawable/dustbin"
+                    app:isGone="@{!isEdit}" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtDescription"
+                style="@style/TextStyle"
+                android:layout_height="wrap_content"
+                android:text="@{service.serviceDescription}"
+                android:textColor="@color/lightGray" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--</FrameLayout>-->
+</layout>
+

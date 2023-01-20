@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+                name="menu"
+                type="com.smox.smoxuser.model.CustomMenu"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/root"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#082539">
+
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_8sdp"
+            android:scaleType="fitCenter"
+            android:src='@{menu.icon}' />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@+id/imgMenu"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{menu.title.toUpperCase()}"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtSubHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text="@{menu.subTitle}"
+                android:textColor="#FFFFFF"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="13sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
+
+</layout>
+

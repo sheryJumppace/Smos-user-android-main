@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="clickListener"
+                type="android.view.View.OnClickListener"/>
+        <variable
+                name="review"
+                type="com.smox.smoxuser.model.Review"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_review"
+            tools:ignore="RtlHardcoded"
+            android:layout_margin="@dimen/default_margin"
+            android:padding="@dimen/default_margin">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextStyle"
+                    android:id="@+id/txtName"
+                    android:text="@{review.name}"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    style="@style/TextStyle"
+                    android:id="@+id/txtPrice"
+                    android:layout_alignParentEnd="true"
+                    android:text="@{review.getDisplayTime()}"
+                    android:layout_alignParentRight="true"
+                    android:textStyle="bold"/>
+
+        </RelativeLayout>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:paddingTop="@dimen/default_margin">
+            <RatingBar
+                    android:id="@+id/ratingView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="@{review.rating}"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:theme="@style/RatingBar"/>
+            <TextView
+                    android:id="@+id/txtRating"
+                    style="@style/TextStyle"
+                    android:textSize="@dimen/small_font_size"
+                    android:paddingRight="@dimen/default_margin"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:textColor="@color/lightGray"
+                    android:text="@{@string/format_rating(review.rating)}"/>
+        </LinearLayout>
+        <RelativeLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin">
+            <TextView
+                    style="@style/TextStyle"
+                    android:id="@+id/txtDescription"
+                    android:textColor="@color/lightGray"
+                    android:text="@{review.getReviewComment()}"
+            />
+            <TextView
+                    android:id="@+id/btnMore"
+                    style="@style/TextStyle"
+                    android:text="@string/more"
+                    android:layout_alignBottom="@id/txtDescription"
+                    android:textColor="@color/blue"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{clickListener}"
+                    app:isGone="@{review.isMore}"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>
+

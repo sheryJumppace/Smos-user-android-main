@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.smox.smoxuser.viewmodel.AddressViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="First Name"
+                android:imeOptions="actionNext"
+                android:inputType="text|textCapWords"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.firstName}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Last Name"
+                android:imeOptions="actionNext"
+                android:inputType="text|textCapWords"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.lastName}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etAddress1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="House no., Building no. etc"
+                android:imeOptions="actionNext"
+                android:inputType="text|textCapSentences"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.address1}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Area"
+                android:imeOptions="actionNext"
+                android:inputType="text|textCapSentences"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.address2}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etAddress1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:focusable="false"
+                android:hint="City"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.city}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etAddress2" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:enabled="false"
+                android:hint="State"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.state}"
+                android:textColor="@drawable/enable_edittext_textcolor"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCity" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:enabled="false"
+                android:hint="Country"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.country}"
+                android:textColor="@drawable/enable_edittext_textcolor"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etState" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etZipCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Zip Code"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.zipCode}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCountry" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Phone Number"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="13"
+                android:maxLines="1"
+                android:padding="@dimen/_8sdp"
+                android:text="@={viewModel.phoneNumber}"
+                android:textSize="@dimen/_14sdp"
+                app:backgroundTint="@color/text_color_dark_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etZipCode" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/defaultSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={viewModel.isDefault}"
+                android:padding="@dimen/_8sdp"
+                android:text="make default"
+                android:theme="@style/CTSwitch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNumber"
+                app:switchPadding="@dimen/_10sdp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/rect_border_yellow"
+                android:onClick="@{(v)->viewModel.submit(v)}"
+                android:text="@{viewModel.isEdit ? @string/updateAddress : @string/saveAddress}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/defaultSwitch" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

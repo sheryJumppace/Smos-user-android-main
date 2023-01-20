@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="textcolor" >
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="mainBackground" >
+        <item name="android:background">@color/quantum_grey800</item>
+    </style>
+
+    <style name="backArrow" >
+        <item name="android:src">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="backgroundCircle" >
+        <item name="android:background">@drawable/bg_slot_un_select_white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textcolorBlueWhite" >
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="search" >
+        <item name="android:src">@drawable/ic_icon_ionic_ios_search_white</item>
+    </style>
+
+    <style name="phone" >
+        <item name="android:src">@drawable/phone_white</item>
+    </style>
+    <style name="internet" >
+        <item name="android:src">@drawable/internet_white</item>
+    </style>
+    <style name="place" >
+        <item name="android:src">@drawable/place_white</item>
+    </style>
+    <style name="share" >
+        <item name="android:src">@drawable/share_white</item>
+    </style>
+    <style name="textcolorWhiteGrey" >
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="textcolorWhiteGreyLight" >
+        <item name="android:textColor">@color/text_color_medium_grey</item>
+    </style>
+    <style name="tintColorr" >
+        <item name="android:tint">@color/white</item>
+    </style>
+    <style name="drawableTintt" >
+        <item name="android:drawableTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/white</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearAttachWidgetFrame.Left"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:background="@null">
+
+    <TextView
+        android:id="@+id/opponent_name_attach_view"
+        style="@style/MessageAuthorStyle"
+        tools:text="Opponent Name"
+        android:textColor="@color/chat_sender_name_color"/>
+
+    <TextView
+        android:id="@+id/msg_text_time_attach"
+        style="@style/TextViewAttach.Right"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        tools:text="time" />
+</LinearLayout>

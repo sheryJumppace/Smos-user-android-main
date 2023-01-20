@@ -1,0 +1,192 @@
+{
+  "project_info": {
+    "project_number": "768706859889",
+    "firebase_url": "https://smoxtrimsetters.firebaseio.com",
+    "project_id": "smoxtrimsetters",
+    "storage_bucket": "smoxtrimsetters.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768706859889:android:68c1e613b4284cf8a95cd0",
+        "android_client_info": {
+          "package_name": "com.ibcemobile.smoxstyler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768706859889-1rk79k61khg6d274v3kngic2blc9ic5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ibcemobile.smoxstyler",
+            "certificate_hash": "4e72ec34fd39accab08971d7fc8f55403dcd07d8"
+          }
+        },
+        {
+          "client_id": "768706859889-9d35rsh7t2r5abtm0hpsuamclcj9m034.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ibcemobile.smoxstyler",
+            "certificate_hash": "df74a53c0152064e0b7d11a5675d139f74e8bc1c"
+          }
+        },
+        {
+          "client_id": "768706859889-ac0uvqh5bot4v2b7l0ebctr3na1bujbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6jQtjBR4tcj8Ldzu-K-sNgDSAi98LHss"
+        },
+        {
+          "current_key": "AIzaSyBkUJ34LxYZxH_AIMCtfkN9LMQhxK0Zrnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768706859889-ac0uvqh5bot4v2b7l0ebctr3na1bujbv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "768706859889-13ml5o54tvcecjsjs8jmhun9h2kepenr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smox.SmoxTrimsetters"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768706859889:android:6946763d42826560",
+        "android_client_info": {
+          "package_name": "com.smox.smoxtrimsetters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768706859889-4jv2jg0dieotskcibfidjcl9ejhnubje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smox.smoxtrimsetters",
+            "certificate_hash": "d1b32d6e6a2f49981f09ff70a13c7ab0470e39d8"
+          }
+        },
+        {
+          "client_id": "768706859889-6predhladr2vqd84c3129s53jp2bhp6m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smox.smoxtrimsetters",
+            "certificate_hash": "85a01d467baf9a49c8084341d3fe67352d022a9c"
+          }
+        },
+        {
+          "client_id": "768706859889-ob4qtell2pffduatsrd0scp9cs7patnc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smox.smoxtrimsetters",
+            "certificate_hash": "67584d61e93848fc830e1d04bd4eedf3fb84a9c5"
+          }
+        },
+        {
+          "client_id": "768706859889-os8toofj8dfcujjc2dkutj78ub4jklfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smox.smoxtrimsetters",
+            "certificate_hash": "31f82954bb084d8a0f64fff517c4f5e3db4231ed"
+          }
+        },
+        {
+          "client_id": "768706859889-qjt45nersmqfuf6rc8tqpe13tud8ibui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smox.smoxtrimsetters",
+            "certificate_hash": "f1bfce64be6098386b0a3f4a1c5dba06d5f98621"
+          }
+        },
+        {
+          "client_id": "768706859889-ac0uvqh5bot4v2b7l0ebctr3na1bujbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6jQtjBR4tcj8Ldzu-K-sNgDSAi98LHss"
+        },
+        {
+          "current_key": "AIzaSyBkUJ34LxYZxH_AIMCtfkN9LMQhxK0Zrnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768706859889-ac0uvqh5bot4v2b7l0ebctr3na1bujbv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "768706859889-13ml5o54tvcecjsjs8jmhun9h2kepenr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smox.SmoxTrimsetters"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768706859889:android:89fe5dded1ed8e18a95cd0",
+        "android_client_info": {
+          "package_name": "com.smox.smoxuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768706859889-dceui2liitsgsrr7kpd3ro1l2iuiclen.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smox.smoxuser",
+            "certificate_hash": "d1b32d6e6a2f49981f09ff70a13c7ab0470e39d8"
+          }
+        },
+        {
+          "client_id": "768706859889-ac0uvqh5bot4v2b7l0ebctr3na1bujbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6jQtjBR4tcj8Ldzu-K-sNgDSAi98LHss"
+        },
+        {
+          "current_key": "AIzaSyBkUJ34LxYZxH_AIMCtfkN9LMQhxK0Zrnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768706859889-ac0uvqh5bot4v2b7l0ebctr3na1bujbv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "768706859889-13ml5o54tvcecjsjs8jmhun9h2kepenr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smox.SmoxTrimsetters"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

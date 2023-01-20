@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="user"
+            type="com.smox.smoxuser.model.SmoxUser" />
+
+        <variable
+            name="appointment"
+            type="com.smox.smoxuser.model.Appointment" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.barber.AppointmentDetailActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@string/title_activity_appointment_detail"
+                app:toolbarId="@+id/toolbar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/plant_detail_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/default_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/default_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/imgProfile"
+                            android:layout_width="@dimen/height_profile_image"
+                            android:layout_height="@dimen/height_profile_image"
+                            android:layout_centerHorizontal="true"
+                            app:imageUrl='@{appointment.user.image}'
+                            app:isCircle="@{true}"
+                            app:placeHolder="@{@drawable/big_placeholder}" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="@string/contact"
+                            android:textColor="@color/gold"
+                            android:textSize="@dimen/medium_font_size" />
+
+                        <TextView
+                            android:id="@+id/txtContact"
+                            style="@style/TextStyle"
+                            android:layout_marginTop="@dimen/default_margin_half"
+                            android:onClick="@{clickListener}"
+                            android:text="@{appointment.user.phone.isEmpty() ? appointment.user.email : appointment.user.phone}" />
+
+                        <TextView
+                            android:id="@+id/txtLocation"
+                            style="@style/TextStyle"
+                            android:layout_marginTop="@dimen/default_margin"
+                            android:text="@string/location"
+                            android:textAllCaps="true"
+                            android:textColor="@color/gold"
+                            android:textSize="@dimen/medium_font_size" />
+
+                        <TextView
+                            android:id="@+id/txtAddress"
+                            style="@style/TextStyle"
+                            android:layout_marginTop="@dimen/default_margin_half"
+                            android:onClick="@{clickListener}"
+                            android:text="@{appointment.user.address}" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/official_date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gold"
+                    android:textSize="@dimen/medium_font_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginTop="@dimen/default_margin_half"
+                        android:text="@{appointment.createdDate}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/default_margin_half"
+                            android:text="@{appointment.dayTime}"
+                            android:textAllCaps="true" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btnStatus"
+                                style="@style/ButtonStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_s_twenty"
+                                android:onClick="@{clickListener}"
+                                android:paddingLeft="@dimen/margin_s_fifteen"
+                                android:paddingRight="@dimen/margin_s_fifteen"
+                                android:text="@{appointment.status.name}"
+                                android:textAllCaps="true" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/TextStyle"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:text="@string/services_colon"
+                        android:layout_centerVertical="true"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/category_selected_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:layout_toEndOf="@+id/txtTitle"
+                        android:clipToPadding="false"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/list_item_categories"
+                        tools:itemCount="1"/>
+
+                    <TextView
+                        android:id="@+id/tvNotFoundServices"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/txtTitle"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:text="@string/no_services_selected"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/service_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/list_item_service" />
+
+                <LinearLayout
+                    android:id="@+id/viewFooter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/viewButtonGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_s_fifteen"
+                        android:weightSum="2">
+
+                        <Button
+                            android:id="@+id/btnEdit"
+                            style="@style/ButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_marginRight="@dimen/default_margin"
+                            android:layout_weight="1"
+                            android:onClick="@{clickListener}"
+                            android:text="@string/edit_booking"
+                            android:textAllCaps="true" />
+
+                        <Button
+                            android:id="@+id/btnComplete"
+                            style="@style/ButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:onClick="@{clickListener}"
+                            android:text="@string/complete"
+                            android:textAllCaps="true" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnCancel"
+                        style="@style/ButtonStyle"
+                        android:layout_marginLeft="@dimen/margin_s_fifteen"
+                        android:layout_marginRight="@dimen/margin_s_fifteen"
+                        android:background="@drawable/bg_smox_border_button"
+                        android:onClick="@{clickListener}"
+                        android:text="@string/cancel"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

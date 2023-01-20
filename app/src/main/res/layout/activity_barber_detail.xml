@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="barber"
+            type="com.smox.smoxuser.model.Barber" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.activity.barber.BarberDetailActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@string/barber"
+                app:toolbarId="@+id/toolbar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/plant_detail_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/default_margin"
+            android:descendantFocusability="blocksDescendants"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--<com.glide.slider.library.SliderLayout
+                            android:id="@+id/slider"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:auto_cycle="false"
+                            app:layout_constraintDimensionRatio="H,3:2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+-->
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+
+                        android:id="@+id/imgProfile"
+                        android:layout_width="@dimen/margin_sixty"
+                        android:layout_height="@dimen/margin_sixty"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="@dimen/margin_s_ten"
+                        app:imageUrl='@{barber.image}'
+                        app:isCircle="@{false}"
+                        app:placeHolder="@{@drawable/big_placeholder}"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/default_margin">
+
+                    <RatingBar
+                        android:id="@+id/ratingView"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:rating="@{barber.rating}"
+                        android:theme="@style/RatingBar" />
+
+                    <TextView
+                        android:id="@+id/txtRating"
+                        style="@style/TextStyle"
+                        android:layout_toEndOf="@id/ratingView"
+                        android:layout_toRightOf="@id/ratingView"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@{@string/format_ratings(barber.rating, barber.countOfReviews)}"
+                        android:textColor="@color/lightGray"
+                        android:textSize="@dimen/small_font_size" />
+
+                    <TextView
+                        android:id="@+id/btnAllReviews"
+                        style="@style/TextStyle"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@id/txtRating"
+                        android:layout_toLeftOf="@id/txtRating" />
+
+                    <ImageView
+                        android:id="@+id/btnFavorite"
+                        android:layout_width="@dimen/margin_s_fifteen"
+                        android:layout_height="@dimen/margin_s_fifteen"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@{barber.isFavorite ? @drawable/ic_like :@drawable/ic_unlike}" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/about"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gold"
+                    android:textSize="@dimen/medium_font_size" />
+
+                <TextView
+                    android:id="@+id/txtAbout"
+                    style="@style/TextStyle"
+                    android:text="@{barber.bio}"
+                    android:textColor="@color/lightGray"
+                    android:textSize="@dimen/small_font_size" />
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/information"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gold"
+                    android:textSize="@dimen/medium_font_size" />
+
+                <TextView
+                    android:id="@+id/txtOpenTime"
+                    style="@style/TextStyle"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@{barber.getStringOfOpenDays}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/default_margin"
+                            android:text="@string/location"
+                            android:textAllCaps="true"
+                            android:textColor="@color/gold"
+                            android:textSize="@dimen/medium_font_size" />
+
+                        <TextView
+                            android:id="@+id/txtAddress"
+                            style="@style/TextStyle"
+                            android:text="@{barber.address}" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/default_margin"
+                            android:text="@string/contact"
+                            android:textAllCaps="true"
+                            android:textColor="@color/gold"
+                            android:textSize="@dimen/medium_font_size" />
+
+                        <TextView
+                            android:id="@+id/txtContact"
+                            style="@style/TextStyle"
+                            android:text="@{barber.phone.isEmpty() ? barber.email : barber.phone}"
+                            android:textAllCaps="true" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:orientation="vertical"
+                    app:isGone="@{barber.isEmptySocial()}">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:text="@string/social_media"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <RelativeLayout
+                        android:id="@+id/btnFacebook"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin"
+                        app:isGone="@{barber.facebook.isEmpty()}">
+
+                        <ImageView
+                            android:id="@+id/imgSocial"
+                            android:layout_width="@dimen/margin_s_ten"
+                            android:layout_height="@dimen/margin_s_ten"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/ic_facebook" />
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/default_margin"
+                            android:layout_marginLeft="@dimen/default_margin"
+                            android:layout_toEndOf="@id/imgSocial"
+                            android:layout_toRightOf="@id/imgSocial"
+                            android:maxLines="1"
+                            android:text="@{barber.facebook}" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/btnTwitter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin"
+                        app:isGone="@{barber.twitter.isEmpty()}">
+
+                        <ImageView
+                            android:id="@+id/imgTwitter"
+                            android:layout_width="@dimen/margin_s_ten"
+                            android:layout_height="@dimen/margin_s_ten"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/ic_twitter_logo" />
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/default_margin"
+                            android:layout_marginLeft="@dimen/default_margin"
+                            android:layout_toEndOf="@id/imgTwitter"
+                            android:layout_toRightOf="@id/imgTwitter"
+                            android:maxLines="1"
+                            android:text="@{barber.twitter}" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/btnInstagram"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin"
+                        app:isGone="@{barber.instagram.isEmpty()}">
+
+                        <ImageView
+                            android:id="@+id/imgInstagram"
+                            android:layout_width="@dimen/margin_s_ten"
+                            android:layout_height="@dimen/margin_s_ten"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/ic_instagram" />
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/default_margin"
+                            android:layout_marginLeft="@dimen/default_margin"
+                            android:layout_toEndOf="@id/imgInstagram"
+                            android:layout_toRightOf="@id/imgInstagram"
+                            android:maxLines="1"
+                            android:text="@{barber.instagram}" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/btnYoutube"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin"
+                        app:isGone="@{barber.youtube.isEmpty()}">
+
+                        <ImageView
+                            android:id="@+id/imgYoutube"
+                            android:layout_width="@dimen/margin_s_ten"
+                            android:layout_height="@dimen/margin_s_ten"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/youtube" />
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/default_margin"
+                            android:layout_marginLeft="@dimen/default_margin"
+                            android:layout_toEndOf="@id/imgYoutube"
+                            android:layout_toRightOf="@id/imgYoutube"
+                            android:maxLines="1"
+                            android:text="@{barber.youtube}" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/btnLinkedin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin"
+                        app:isGone="@{barber.linkedin.isEmpty()}">
+
+                        <ImageView
+                            android:id="@+id/imgLinkedin"
+                            android:layout_width="@dimen/margin_s_ten"
+                            android:layout_height="@dimen/margin_s_ten"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/linkedin" />
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/default_margin"
+                            android:layout_marginLeft="@dimen/default_margin"
+                            android:layout_toEndOf="@id/imgLinkedin"
+                            android:layout_toRightOf="@id/imgLinkedin"
+                            android:maxLines="1"
+                            android:text="@{barber.linkedin}" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnUpNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:text="@string/upnext_count"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:text="@{@string/format_quantity(barber.upNext)}" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:gravity="end"
+                        android:text="@string/see_detail"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/gold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:text="@string/cancellation_fee_label"
+                        android:textAllCaps="true"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/medium_font_size" />
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:text="@{@string/format_fee(barber.cancellationFee)}" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/services"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gold"
+                    android:textSize="@dimen/medium_font_size" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/service_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/list_item_service" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

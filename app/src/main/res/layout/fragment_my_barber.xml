@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.barber.BarberMainActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/plant_detail_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/btnPreference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@string/booking_preferences" />
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/btnHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@string/hours_of_operation" />
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/btnSocialmedia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@string/social_media" />
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+            <!--<RelativeLayout
+                    android:id="@+id/btnMobilePay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_s_ten"
+                    >
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_centerVertical="true"
+                                android:orientation="vertical">
+                    <TextView
+                            style="@style/TextStyle"
+                            android:paddingRight="@dimen/default_margin"
+                            android:paddingLeft="@dimen/default_margin"
+                            android:text="@string/mobile_pay"
+                            />
+                    <TextView
+                            android:id="@+id/txtMobilePay"
+                            style="@style/TextStyle"
+                            android:textSize="@dimen/small_font_size"
+                            android:paddingTop="@dimen/default_margin"
+                            android:paddingRight="@dimen/default_margin"
+                            android:paddingLeft="@dimen/default_margin"
+                            android:textColor="@color/lightGray"
+                            />
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="@dimen/margin_s_fifteen"
+                        android:layout_height="@dimen/margin_s_fifteen"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        app:srcCompat="@drawable/ic_back_arrow"/>
+            </RelativeLayout>-->
+            <RelativeLayout
+                android:id="@+id/btnConnectToStripe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <TextView
+                    android:id="@+id/txtConnectStripe"
+                    style="@style/TextStyle"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@string/stripeConfiguration" />
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+
+                <TextView
+                    android:id="@+id/txtStripeDes"
+                    style="@style/TextStyle"
+                    android:layout_below="@+id/txtConnectStripe"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingTop="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:textColor="@color/lightGray"
+                    android:textSize="@dimen/small_font_size" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/btnLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@string/location" />
+
+                    <TextView
+                        android:id="@+id/txtLocation"
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingTop="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:textColor="@color/lightGray"
+                        android:textSize="@dimen/small_font_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/btnSubscribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtSubscribe"
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@string/subscribe" />
+
+                    <TextView
+                        android:id="@+id/txtSubscribeDate"
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingTop="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:textColor="@color/lightGray"
+                        android:textSize="@dimen/small_font_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/btnAboutMe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@string/about_me" />
+
+                    <TextView
+                        android:id="@+id/txtAbout"
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingTop="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:textColor="@color/lightGray"
+                        android:textSize="@dimen/small_font_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+
+            <RelativeLayout
+                android:id="@+id/btnReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s_ten">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@string/reviews_ratings" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/default_margin">
+
+                        <RatingBar
+                            android:id="@+id/ratingView"
+                            style="@style/Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:rating="3"
+                            android:theme="@style/RatingBar" />
+
+                        <TextView
+                            android:id="@+id/txtRating"
+                            style="@style/TextStyle"
+                            android:paddingLeft="@dimen/default_margin"
+
+                            android:paddingRight="@dimen/default_margin"
+                            android:textColor="@color/lightGray"
+                            android:textSize="@dimen/small_font_size" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/margin_s_fifteen"
+                    android:layout_height="@dimen/margin_s_fifteen"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_back_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_s_fifteen"
+                android:background="@color/dark_gray" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="event"
+                type="com.smox.smoxuser.model.Event"/>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/right_bubble"
+            android:layout_margin="@dimen/default_margin"
+            android:padding="10dp"
+            tools:ignore="RtlHardcoded">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/iv_edit"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtEvent"
+                style="@style/TextStyle"
+                android:text="@{event.event}"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:text="Event" />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                style="@style/TextStyle"
+                android:text="@{@string/format_start_at(event.getStart)}"
+                android:textColor="@color/quantum_yellow"
+                tools:text="Start" />
+
+            <TextView
+                android:id="@+id/txtServices"
+                style="@style/TextStyle"
+                android:text="@{@string/format_end_at(event.getEnd)}"
+                android:textColor="@color/quantum_yellow"
+                tools:text="End:" />
+        </LinearLayout>
+
+        <ImageView
+
+            android:id="@+id/iv_edit"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:tint="@color/white"
+            android:layout_toStartOf="@+id/iv_delete"
+            android:foregroundTint="@color/white"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_edit" />
+
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:foregroundTint="@color/white"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/dustbin"
+            android:tint="@color/white" />
+    </RelativeLayout>
+</layout>
+

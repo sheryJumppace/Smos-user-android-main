@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".ui.activity.HomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_45sdp"
+        android:layout_marginRight="@dimen/_45sdp"
+        android:src="@drawable/ic_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/default_screen_margin"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextStyle"
+            android:text="@string/continue_with_social" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnFacebook"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_marginEnd="@dimen/default_margin_half"
+                android:layout_marginRight="@dimen/default_margin_half"
+                android:layout_weight="1"
+                android:background="@drawable/bg_facebook_button"
+                android:drawableStart="@drawable/ic_facebook_logo"
+                android:drawableLeft="@drawable/ic_facebook_logo"
+                android:paddingStart="@dimen/_13sdp"
+                android:paddingLeft="@dimen/_13sdp"
+                android:paddingRight="@dimen/_13sdp"
+                android:text="@string/facebook"
+                tools:ignore="RtlSymmetry" />
+
+            <Button
+                android:id="@+id/btnGoogle"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/default_margin_half"
+                android:layout_marginLeft="@dimen/default_margin_half"
+                android:layout_weight="1"
+                android:background="@drawable/bg_google_button"
+                android:drawableStart="@drawable/ic_google_logo"
+                android:drawableLeft="@drawable/ic_google_logo"
+                android:paddingStart="@dimen/_13sdp"
+                android:paddingLeft="@dimen/_13sdp"
+                android:paddingRight="@dimen/_13sdp"
+                android:text="@string/google"
+                android:textColor="@color/black"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp">
+
+            <TextView
+                style="@style/TextStyle"
+                android:layout_centerInParent="true"
+                android:text="@string/or" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/ic_line" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/ButtonStyle"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/login_using_email_or_phone"
+            android:textColor="@color/white"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:id="@+id/btnRemind"
+            style="@style/ButtonStyleGrey"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/remindLater"
+            android:textColor="@color/white"
+            tools:ignore="RtlSymmetry" />
+
+        <LinearLayout
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextStyle"
+                android:text="@string/don_t_have_account"
+                android:textColor="@color/blue" />
+
+            <TextView
+                style="@style/TextStyle"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:text="@string/sign_up"
+                android:textColor="@color/gold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

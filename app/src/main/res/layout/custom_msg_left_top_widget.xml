@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/custom_view_top_left"
+    style="@style/MatchWidth"
+    android:orientation="horizontal">
+
+  <!--  <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/opponent_name_text_view"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/chat_message_username_margin"
+        android:layout_marginRight="@dimen/chat_message_username_margin"
+        android:gravity="left"
+        android:textColor="@color/chat_sender_name_color"
+        android:textSize="@dimen/chat_author_text_size"
+        android:textStyle="bold"
+        app:robotoTypeface="roboto_bold"
+        tools:text="Opponent Name" />-->
+
+    <TextView
+        android:id="@+id/custom_msg_text_time_message"
+        style="@style/WrapContent"
+        android:textColor="@color/darkGray"
+        tools:text="12:42" />
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+            <variable
+                name="barber"
+            type="com.smox.smoxuser.model.Barber" />
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rlRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                app:cardElevation="0dp">
+
+                    <com.rishabhharit.roundedimageview.RoundedImageView
+                        android:id="@+id/imgBarberImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cornerRadius="@dimen/_16sdp"
+                        app:roundedCorners="all"
+                        android:src="@drawable/small_placeholder"
+                        android:scaleType="fitXY"/>
+
+            </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card"
+            android:text="@{barber.firstName.concat(` `).concat(barber.lastName) }"
+            style="@style/textcolor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTitle"
+            android:drawableStart="@drawable/ic_scissors"
+            style="@style/drawableTintt"
+            android:drawablePadding="@dimen/_8sdp"
+            android:text="@{barber.business_name}"
+            android:textColor="#757575"
+            android:visibility="@{barber.business_name!=`` ? View.VISIBLE : View.INVISIBLE }" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RatingBar
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rating="@{barber.rating}"
+                android:theme="@style/RatingBar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{ @string/format_ratings(barber.rating,barber.countOfReviews)}"
+                style="@style/textcolor" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llRating"
+            android:layout_alignParentEnd="true"
+            android:text="@{ @string/distanceFormat(barber.distance)}"
+            android:textColor="#757575" />
+
+
+    </RelativeLayout>
+</layout>

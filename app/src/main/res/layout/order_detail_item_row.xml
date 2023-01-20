@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.smox.smoxuser.model.OrderDetailItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_2sdp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/image"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_4sdp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:productUrl="@{order.main_image}"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llAboutView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/txtDiscPrice"
+                android:layout_toEndOf="@+id/image"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtBn"
+                    style="@style/textcolorBlueWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="@{order.product_name}"
+                    android:textSize="@dimen/_14ssp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    tools:text="Product Name" />
+
+                <TextView
+                    android:id="@+id/txtTitleBar"
+                    style="@style/textcolorWhiteGrey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{String.format(`Quantity- `+order.quantity)}"
+                    tools:text="Quantity-5" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/txtDiscPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_12ssp"
+                tools:text="$80.0"
+                android:layout_toStartOf="@+id/txtTotalPay"
+                android:text="@{@string/format_price(order.actual_price)}"
+                android:padding="@dimen/_5sdp" />
+            <TextView
+                android:id="@+id/txtTotalPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_14ssp"
+                tools:text="$50.0"
+                style="@style/textcolor"
+                android:text="@{@string/format_price(order.discounted_price)}"
+                android:padding="@dimen/_5sdp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

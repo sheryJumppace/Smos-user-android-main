@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_barber"
+    app:startDestination="@id/barberMainFragment">
+
+
+    <fragment
+        android:id="@+id/barberMainFragment"
+        android:name="com.smox.smoxuser.ui.fragment.barber.BarberMainFragment"
+        android:label="UpNext"
+        tools:layout="@layout/fragment_barber_main">
+        <action
+            android:id="@+id/action_barber_main_fragment_to_account_fragment"
+            app:destination="@id/accountFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_myBarberFragment"
+            app:destination="@id/myBarberFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_barberProductFragment"
+            app:destination="@id/barberProductFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_orderFragment"
+            app:destination="@id/myOrdersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.smox.smoxuser.ui.fragment.AccountFragment"
+        android:label="    "
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.smox.smoxuser.ui.fragment.WebViewFragment"
+        android:label="About us"
+        tools:layout="@layout/fragment_web_view">
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/myBarberFragment"
+        android:name="com.smox.smoxuser.ui.fragment.barber.MyBarberFragment"
+        android:label="My Styler" />
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.smox.smoxuser.ui.fragment.PasswordFragment"
+        android:label="" />
+    <fragment
+        android:id="@+id/barberProductFragment"
+        android:name="com.smox.smoxuser.ui.fragment.product.BarberProductFragment"
+        android:label="Products" />
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.smox.smoxuser.ui.fragment.orders.MyOrdersFragment"
+        android:label="@string/my_orders" />
+</navigation>
+
+
+
+
+
