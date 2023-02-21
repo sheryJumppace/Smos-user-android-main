@@ -93,7 +93,7 @@ class APIHandler {
     private fun sendRequest(requestType: Int, tag: String, params: Map<String, String>?) {
         // Tag used to cancel the request
         var url = Constants.KUrl.server + tag
-        Log.e(TAG, "sendRequest: url: $url  request: $requestType  params: $params" )
+        Log.e(TAG, "Line 96 sendRequest: url: $url  request: $requestType  params: $params" )
         if (requestType == Request.Method.GET && params != null || requestType == Request.Method.DELETE && params != null) {
             url = "$url?"
             for ((key, value) in params) {
@@ -109,6 +109,9 @@ class APIHandler {
                     when (JSONTokener(response).nextValue()) {
                         is JSONObject -> {
                             val jObj = JSONObject(response)
+
+                            Log.d("++--++","tag : ${tag} response: $response")
+
                             listener?.onResult(jObj)
                         }
                         is JSONArray -> {
@@ -189,12 +192,12 @@ class APIHandler {
     private fun sendRequestJson(requestType: Int, tag: String, params: JSONObject?) {
         // Tag used to cancel the request
         var url = Constants.KUrl.server + tag
-        Log.e(TAG, "sendRequest: url: $url  request: $requestType   params: $params" )
+        Log.e(TAG, "Line 192 sendRequest: url: $url  request: $requestType   params: $params" )
         App.instance.requestQueue?.cache?.clear()
         val strReq = object : JsonObjectRequest(requestType,
             url, params, object : Response.Listener<JSONObject?> {
                 override fun onResponse(response: JSONObject?) {
-                    //Log.e(TAG, "Response: $response")
+                    Log.d("++--++", "Response: $response")
                 }
             }, Response.ErrorListener { error ->
                 val errorMessage: String =
@@ -255,7 +258,7 @@ class APIHandler {
 
 
     companion object {
-        private const val TAG = "NETWORK"
+        private const val TAG = "++--++"
     }
 
     fun logout() {

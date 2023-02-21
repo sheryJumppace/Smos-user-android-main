@@ -371,7 +371,7 @@ open class BaseLoginActivity() : BaseActivity(), GoogleApiClient.OnConnectionFai
         params["phone_number"] = phone
         params["first_name"] = firstName
         params["last_name"] = lastName
-        params["type"] = type.name.toLowerCase()
+        params["user_type"] = type.name.toLowerCase()
         progressHUD.show()
         //Log.e("TAG", "signUpWithEmail: $params")
         APIHandler(

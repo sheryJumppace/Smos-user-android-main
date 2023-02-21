@@ -224,6 +224,9 @@ class CustProfileActivity : BaseImagePickerActivity(), UploadImages {
             params,
             object : APIHandler.NetworkListener {
                 override fun onResult(result: JSONObject) {
+                    Log.d("++--++","CustProfileActivity updateAddress 227 \n result : $result")
+
+
                     val message: String = result.getString("message")
                     shortToast(message)
                     progressHUD.dismiss()
@@ -239,6 +242,8 @@ class CustProfileActivity : BaseImagePickerActivity(), UploadImages {
                 override fun onFail(error: String?) {
                     progressHUD.dismiss()
                     shortToast(error)
+
+                    Log.d("++--++","error : $error")
                 }
             })
     }

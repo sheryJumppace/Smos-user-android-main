@@ -45,7 +45,7 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
     var cartList = arrayListOf<CartItems>()
     val handler = Handler(Looper.getMainLooper())
     lateinit var cartItem: CartItems
-    lateinit var selectedAddress: AddressResponse.AddressData
+    var selectedAddress: AddressResponse.AddressData? = null
     var qty = 0
     lateinit var clickRunnable: Runnable
     var addressChanged = false
@@ -53,9 +53,7 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
     var isAddressOk = true
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCartBinding.inflate(inflater, container, false)
         productViewModel = (activity as ProductsActivity).productViewModel
@@ -73,8 +71,7 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
         binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCart.adapter = cartAdapter
         productViewModel.getCartListByBarber(
-            requireContext(),
-            (activity as ProductsActivity).progressBar
+            requireContext(), (activity as ProductsActivity).progressBar
         )
         addressChanged = false
         initClick()
@@ -88,23 +85,19 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
 
                 val jsonObject = getJsonObject()
                 jsonObject.addProperty(
-                    "client_secret",
-                    productViewModel.paymentIntentData.get()?.client_secret
+                    "client_secret", productViewModel.paymentIntentData.get()?.client_secret
                 )
                 val jsonaray = JsonArray()
                 for (item in productViewModel.paymentIntentData.get()?.checkout_id!!) {
                     jsonaray.add(item)
                 }
                 jsonObject.add(
-                    "checkout_id",
-                    jsonaray
+                    "checkout_id", jsonaray
                 )
 
                 Log.e("TAG", "onViewCreated: abcd $jsonObject")
                 productViewModel.confirmPayment(
-                    requireContext(),
-                    (activity as ProductsActivity).progressBar,
-                    jsonObject
+                    requireContext(), (activity as ProductsActivity).progressBar, jsonObject
                 )
             }
 
@@ -116,6 +109,7 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
             val args = Bundle()
             args.putBoolean(IS_EDIT, false)
             Navigation.findNavController(requireView())
+
                 .navigate(R.id.action_cartFragment_to_addEditAddressFragment)
         }
 
@@ -125,12 +119,15 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
         }
 
         binding.priceDetailBottom.txtCheckout.setOnClickListener {
-            val jsonObject = getJsonObject()
-            productViewModel.callCheckoutApi(
-                requireContext(),
-                (activity as ProductsActivity).progressBar,
-                jsonObject
-            )
+
+            if (selectedAddress != null) {
+                val jsonObject = getJsonObject()
+                productViewModel.callCheckoutApi(
+                    requireContext(), (activity as ProductsActivity).progressBar, jsonObject
+                )
+            }else{
+                shortToast("Add address before continue")
+            }
         }
     }
 
@@ -154,15 +151,16 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
 
         Log.e("TAG", "getJsonObject: $cartAmountObject")
 
+
         val user = Barber(SessionManager.getInstance(requireContext()).userData)
         val oneLineAddress =
-            selectedAddress.address_one + ", " + selectedAddress.address_two + " " + selectedAddress.city + " " + selectedAddress.state + " " + selectedAddress.country + " " + selectedAddress.zipcode
+            selectedAddress!!.address_one + ", " + selectedAddress!!.address_two + " " + selectedAddress!!.city + " " + selectedAddress!!.state + " " + selectedAddress!!.country + " " + selectedAddress!!.zipcode
         val jsonObject = JsonObject()
         jsonObject.addProperty("barber_id", cartData.cart_items[0].barber_id)
-        jsonObject.addProperty("name", selectedAddress.first_name + " " + selectedAddress.last_name)
-        jsonObject.addProperty("phone", selectedAddress.phone)
+        jsonObject.addProperty("name", selectedAddress!!.first_name + " " + selectedAddress!!.last_name)
+        jsonObject.addProperty("phone", selectedAddress!!.phone)
         jsonObject.addProperty("email", user.email)
-        jsonObject.addProperty("address_id", selectedAddress.id)
+        jsonObject.addProperty("address_id", selectedAddress!!.id)
         jsonObject.addProperty("address", oneLineAddress)
         jsonObject.addProperty("subtotal", cartData.discounted_price.toString())
         jsonObject.addProperty("discounted_price", cartData.discounted_price.toString())
@@ -171,8 +169,8 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
         jsonObject.addProperty("total", cartData.total.toString())
         jsonObject.add("cart_id", jsonArray)
         jsonObject.add("single_product", cartAmountObject)
-        jsonObject.addProperty("latitude", selectedAddress.latitude)
-        jsonObject.addProperty("longitude", selectedAddress.longitude)
+        jsonObject.addProperty("latitude", selectedAddress!!.latitude)
+        jsonObject.addProperty("longitude", selectedAddress!!.longitude)
 
         Log.e("TAG", "Main Json: $jsonObject")
 
@@ -198,6 +196,10 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
                     binding.priceDetailBottom.btnAddAddress.visibility = View.GONE
                     binding.priceDetailBottom.llAddress.visibility = View.VISIBLE
 
+
+                    Log.d("++--++", "!addressChanged : (${!addressChanged})")
+                    Log.d("++--++", "cartData.default_address : (${cartData.default_address})")
+
                     if (!addressChanged) {
                         selectedAddress = cartData.default_address
                         updateDeliveryAddress()
@@ -210,7 +212,7 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
                 Navigation.findNavController(requireView()).popBackStack()
             }
         })
-        productViewModel.isCheckoutSuccess.value=false
+        productViewModel.isCheckoutSuccess.value = false
         productViewModel.isCheckoutSuccess.observe(viewLifecycleOwner, Observer {
             if (it) {
                 val intent = Intent(
@@ -235,7 +237,10 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
 
         clickRunnable = Runnable {
             updateQuantity(cartItem, qty)
-            Log.e("TAG", "initObservers: cart product name=${cartItem.product!!.product_name} qty= $qty")
+            Log.e(
+                "TAG",
+                "initObservers: cart product name=${cartItem.product!!.product_name} qty= $qty"
+            )
             qty = 0
         }
         val sheetBehavior = BottomSheetBehavior.from(binding.priceDetailBottom.root);
@@ -265,13 +270,12 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
         val jsonObject = JsonObject()
         jsonObject.addProperty("product_id", cartItem.product_id)
         jsonObject.addProperty("barber_id", cartItem.barber_id)
-        jsonObject.addProperty("user_id", SessionManager.getInstance(requireContext().applicationContext).userId)
+        jsonObject.addProperty(
+            "user_id", SessionManager.getInstance(requireContext().applicationContext).userId
+        )
         jsonObject.addProperty("quantity", qty)
         productViewModel.updateCartQuantity(
-            requireContext(),
-            (activity as ProductsActivity).progressBar,
-            jsonObject,
-            false
+            requireContext(), (activity as ProductsActivity).progressBar, jsonObject, false
         )
     }
 
@@ -279,18 +283,17 @@ class CartFragment : Fragment(), CartListAdapter.updateQtyClickListner {
     private fun setGetAddressListner() {
         Navigation.findNavController(requireView()).currentBackStackEntry?.savedStateHandle?.getLiveData<Bundle>(
             "KEY"
-        )
-            ?.observe(viewLifecycleOwner) {
-                if (it != null) {
-                    addressChanged = true
-                    selectedAddress = it.getParcelable(ADDRESS_ITEM)!!
-                    updateDeliveryAddress()
-                }
+        )?.observe(viewLifecycleOwner) {
+            if (it != null) {
+                addressChanged = true
+                selectedAddress = it.getParcelable(ADDRESS_ITEM)!!
+                updateDeliveryAddress()
             }
+        }
     }
 
     private fun updateDeliveryAddress() {
-        binding.priceDetailBottom.txtAddressLine.text = selectedAddress.defaultAddress()
+        binding.priceDetailBottom.txtAddressLine.text = selectedAddress!!.defaultAddress()
     }
 
 

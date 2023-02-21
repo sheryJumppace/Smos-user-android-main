@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -87,6 +86,7 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
         }
 
         binding.txtNext.setOnClickListener {
+       Log.d("++--++","BookAppointmentActivity is called")
             if (sessionManager.apiKey?.isNotEmpty()!!) {
                 val serviceList = arrayListOf<Service>()
                 for (item in serviceSelectedList) {
@@ -118,7 +118,7 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
                 } else {
                     shortToast("Please select service or time slot first.")
                 }
-            }else{
+            } else {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.activity_enter, R.anim.activity_exit)
@@ -158,7 +158,8 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
         Log.e(TAG, "onDateSelected: selectedDate= $dateSelectedd")
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault())
         val outputFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-        val localDateFormat = SimpleDateFormat(Constants.KDateFormatter.local_full_time, Locale.getDefault())
+        val localDateFormat =
+            SimpleDateFormat(Constants.KDateFormatter.local_full_time, Locale.getDefault())
         val timeFormat = SimpleDateFormat(Constants.KDateFormatter.hourAM, Locale.getDefault())
         val curDateFormat =
             SimpleDateFormat(Constants.KDateFormatter.serverDay, Locale.getDefault())
@@ -193,13 +194,13 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
                     cal.add(Calendar.MINUTE, -10)// close the store before 10 min
                     barberEndTime = cal.time
 
-                    val timeOnly=timeFormat.format(Date())
-                    val curTime=localDateFormat.parse(selectDate + " " + timeOnly)
+                    val timeOnly = timeFormat.format(Date())
+                    val curTime = localDateFormat.parse(selectDate + " " + timeOnly)
                     Log.e(TAG, "onDateSelected: $barberStartDateTime $barberEndTime $curTime")
                     if (curTime!! > barberStartDateTime && curTime < barberEndTime) {
                         newStartTime = getCurrentStartTime()
                         newEndTime = openDay.endTime
-                    }else if (curTime < barberStartDateTime){
+                    } else if (curTime < barberStartDateTime) {
                         newStartTime = openDay.startTime
                         newEndTime = openDay.endTime
                     }
@@ -209,32 +210,32 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
                 }
             }
 
-            var isHoliday=false
+            var isHoliday = false
             for (item in holidayList) {
-                isHoliday = selectedDate==item.date
+                isHoliday = selectedDate == item.date
             }
 
             if (!isHoliday) {
-                if ((newStartTime != "-" && newEndTime != "-")&&(newStartTime !=newEndTime)) {
+                if ((newStartTime != "-" && newEndTime != "-") && (newStartTime != newEndTime)) {
                     progressHUD.show()
-                        val formatter =
-                            SimpleDateFormat(Constants.KDateFormatter.second, Locale.getDefault())
-                        val fullTime = formatter.format(Date())
+                    val formatter =
+                        SimpleDateFormat(Constants.KDateFormatter.second, Locale.getDefault())
+                    val fullTime = formatter.format(Date())
 
-                        slotViewModel.fetchList(
-                            applicationContext,
-                            date,
-                            newStartTime,
-                            newEndTime,
-                            selectedDate,
-                            fullTime,
+                    slotViewModel.fetchList(
+                        applicationContext,
+                        date,
+                        newStartTime,
+                        newEndTime,
+                        selectedDate,
+                        fullTime,
                         "-1"
-                        )
+                    )
                 } else {
                     slotViewModel.timeSlotList.value =
                         arrayListOf(TimeSlotResult("Closed", 0, false))
                 }
-            }else{
+            } else {
                 slotViewModel.timeSlotList.value =
                     arrayListOf(TimeSlotResult("Closed", 0, false))
             }
@@ -250,7 +251,7 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
     }
 
     override fun onItemClick(pos: Int) {
-        Log.e(TAG, "onItemClick: $pos")
+        Log.e(TAG, "--> onItemClick: $pos")
         binding.tvNoDataFound.visibility = View.GONE
         catServiceList.clear()
         if (!items[pos].services.isNullOrEmpty())
@@ -293,9 +294,9 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
     override fun onResume() {
         super.onResume()
         Log.e(TAG, "onResumeee: " + SessionManager.getInstance(this).isBack)
-        if (SessionManager.getInstance(this).isBack){
+        if (SessionManager.getInstance(this).isBack) {
             binding.datePicker.setDate(DateTime(DateTimeZone.getDefault()))
-            SessionManager.getInstance(this).isBack=false
+            SessionManager.getInstance(this).isBack = false
         }
     }
 }

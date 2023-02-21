@@ -26,7 +26,8 @@ private const val RC_SIGN_IN = 123
 private var type = UserType.Customer
 
 class SignupActivity : BaseLoginActivity(), View.OnClickListener {
-    private var isPhoneVerified = false
+    private var isPhoneVerified = true
+//    private var isPhoneVerified = false
     private lateinit var binding: ActivitySignUpV2Binding
     var userType:String =UserType.Customer.toString()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,7 @@ class SignupActivity : BaseLoginActivity(), View.OnClickListener {
         binding.btnSignUp.setOnClickListener(this)
         binding.txtPhone.setOnClickListener(this)
         binding.lnrLogin.setOnClickListener(this)
+        binding.txtPhone.setText("+923461234567")
 
         //binding.txtPhone.isEnabled = false
         binding.txtPhone.addTextChangedListener(object : TextWatcher {
@@ -87,7 +89,10 @@ class SignupActivity : BaseLoginActivity(), View.OnClickListener {
                 terms()
             }*/
            // R.id.btnVerify -> doPhoneNumberVerification()
-            R.id.txtPhone -> doPhoneNumberVerification()
+            R.id.txtPhone ->{
+                //                doPhoneNumberVerification()
+
+            }
             /*R.id.btnSubscription -> {
                 val subscribeIntent = Intent(this@SignupActivity, SubscriptionActivity::class.java)
                 subscribeIntent.putExtra("FromSignUp", true)
@@ -205,6 +210,7 @@ class SignupActivity : BaseLoginActivity(), View.OnClickListener {
         getFirebaseToken()
        /*// lnrLogin.isEnabled = true
         btnFacebook.isEnabled = true
+
         btnGoogle.isEnabled = true
         btnTerms.isEnabled = true*/
     }

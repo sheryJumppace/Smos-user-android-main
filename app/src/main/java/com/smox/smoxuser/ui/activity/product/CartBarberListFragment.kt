@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.smox.smoxuser.R
 import com.smox.smoxuser.databinding.FragmentCartBarberListBinding
 import com.smox.smoxuser.model.CartBarberItem
@@ -58,6 +59,8 @@ class CartBarberListFragment : Fragment(), CartBarberListAdapter.OnCartBarberSel
     }
 
     private fun getCartBarberList() {
+        Log.d("++--++","getCartBarberList is called")
+
         val progressBar = (activity as ProductsActivity).progressBar
         progressBar.show()
         ApiRepository(requireContext()).getCartBarberList()
@@ -73,6 +76,8 @@ class CartBarberListFragment : Fragment(), CartBarberListAdapter.OnCartBarberSel
                     progressBar.dismiss()
 
                     if (!res.error) {
+                        Log.d("++--++","getCartBarberList is onNext : "+res.message)
+                        Log.d("++--++","getCartBarberList is onNext : "+ (Gson().toJson(res)))
                         if (res.result.isNotEmpty()) {
                             cartBarberList.clear()
                             cartBarberList.addAll(res.result)
@@ -89,10 +94,11 @@ class CartBarberListFragment : Fragment(), CartBarberListAdapter.OnCartBarberSel
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
+                    Log.d("++--++","getCartBarberList is calledonError : "+e.message)
                     /*if ((e as HttpException).code()==401)
-                        shortToast(requireContext().getString(R.string.authError))
-                    else
-                        shortToast(e.message())*/
+                                           shortToast(requireContext().getString(R.string.authError))
+                                       else
+                                           shortToast(e.message())*/
                 }
 
                 override fun onComplete() {

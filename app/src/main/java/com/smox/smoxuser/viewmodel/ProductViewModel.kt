@@ -1,17 +1,15 @@
 package com.smox.smoxuser.viewmodel
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.smox.smoxuser.R
 import com.smox.smoxuser.manager.APIHandler
-import com.smox.smoxuser.manager.Constants
 import com.smox.smoxuser.model.*
 import com.smox.smoxuser.retrofit.ApiRepository
 import com.smox.smoxuser.utils.shortToast
@@ -29,19 +27,21 @@ class ProductViewModel : ViewModel() {
     var isCartAdded = MutableLiveData(false)
     var barberId = MutableLiveData("0")
     var userId = MutableLiveData("-1")
-    var isCheckoutSuccess=MutableLiveData(false)
-    var isOrderPlaced=MutableLiveData(false)
-    var isQtyUpdate=MutableLiveData(false)
-    var paymentIntentData=ObservableField<PaymentResultt>()
+    var isCheckoutSuccess = MutableLiveData(false)
+    var isOrderPlaced = MutableLiveData(false)
+    var isQtyUpdate = MutableLiveData(false)
+    var paymentIntentData = ObservableField<PaymentResultt>()
 
     fun getAllProducts(
         context: Context,
         progressBar: KProgressHUD,
     ) {
         progressBar.show()
+
+        Log.d("++--++", "getAllProducts is Called")
+
         ApiRepository(context).getAllProducts(barberId.value!!, userId.value.toString())
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<Products> {
                 override fun onSubscribe(d: Disposable) {
 
@@ -49,6 +49,7 @@ class ProductViewModel : ViewModel() {
 
                 override fun onNext(res: Products) {
                     progressBar.dismiss()
+                    Log.d("++--++", "getAllProducts is Called onNext : " + Gson().toJson(res))
                     if (res.error) {
                         shortToast(res.message)
                     } else {
@@ -59,12 +60,11 @@ class ProductViewModel : ViewModel() {
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    Log.e("++--++", "getAllProduct so nError is called : ${e.message}")
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -76,8 +76,7 @@ class ProductViewModel : ViewModel() {
 
     fun addToCart(context: Context, progressBar: KProgressHUD, jsonObject: JsonObject) {
         progressBar.show()
-        ApiRepository(context).addToCart(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).addToCart(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<AddCartResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -89,19 +88,16 @@ class ProductViewModel : ViewModel() {
                     shortToast(res.message)
                     if (!res.error) {
                         isCartAdded.postValue(true)
-                    } else
-                        isCartAdded.postValue(false)
+                    } else isCartAdded.postValue(false)
                 }
 
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    Log.e("TAG", "getAllProducts onError: ${e.message}")
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -112,8 +108,7 @@ class ProductViewModel : ViewModel() {
     }
 
     fun getCartListByBarber(context: Context, progressBar: KProgressHUD) {
-        if (!progressBar.isShowing)
-            progressBar.show()
+        if (!progressBar.isShowing) progressBar.show()
         ApiRepository(context).getCartListByBarber(barberId.value!!)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -124,8 +119,13 @@ class ProductViewModel : ViewModel() {
 
                 override fun onNext(res: CartResponse) {
                     progressBar.dismiss()
+                    Log.d("++--++", "getCartListByBarber 1 res \t ${res}")
+                    Log.d("++--++", "getCartListByBarber 1 res \t ${Gson().toJson(res)}")
 
                     if (!res.error) {
+
+                        Log.d("++--++", "res ${res}")
+
                         cartData.postValue(res.result)
                         cartCount.set(res.result.cart_count)
                     } else {
@@ -136,12 +136,18 @@ class ProductViewModel : ViewModel() {
 
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    Log.d("++--++", "getCartListByBarber onError  ${e.message}")
+                    Log.d("++--++", "getCartListByBarber cause  ${e.cause}")
+
+
+                    try {
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+                    }catch (e :Exception){
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -157,8 +163,7 @@ class ProductViewModel : ViewModel() {
         isAddedFromDetail: Boolean
     ) {
         progressBar.show()
-        ApiRepository(context).updateCart(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).updateCart(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse2> {
                 override fun onSubscribe(d: Disposable) {
@@ -168,10 +173,8 @@ class ProductViewModel : ViewModel() {
                 override fun onNext(res: SimpleOkResponse2) {
 
                     if (!res.error) {
-                        if (!isAddedFromDetail)
-                            getCartListByBarber(context, progressBar)
-                        else
-                            progressBar.dismiss()
+                        if (!isAddedFromDetail) getCartListByBarber(context, progressBar)
+                        else progressBar.dismiss()
                     } else {
                         progressBar.dismiss()
                         isQtyUpdate.postValue(true)
@@ -182,12 +185,10 @@ class ProductViewModel : ViewModel() {
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -199,8 +200,10 @@ class ProductViewModel : ViewModel() {
 
     fun callCheckoutApi(context: Context, progressBar: KProgressHUD, jsonObject: JsonObject) {
         progressBar.show()
-        ApiRepository(context).checkout(jsonObject)
-            .subscribeOn(Schedulers.io())
+
+        Log.d("++--++","callCheckoutApi jsonObject : $jsonObject")
+
+        ApiRepository(context).checkout(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<CartPaymentResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -218,12 +221,10 @@ class ProductViewModel : ViewModel() {
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -235,8 +236,7 @@ class ProductViewModel : ViewModel() {
 
     fun confirmPayment(context: Context, progressBar: KProgressHUD, jsonObject: JsonObject) {
         progressBar.show()
-        ApiRepository(context).checkoutAgain(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).checkoutAgain(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse2> {
                 override fun onSubscribe(d: Disposable) {
@@ -245,21 +245,21 @@ class ProductViewModel : ViewModel() {
 
                 override fun onNext(res: SimpleOkResponse2) {
                     progressBar.dismiss()
+                    Log.e("++--++", "confirmPayment onNext: ${res}")
+
+
                     if (!res.error) {
                         isOrderPlaced.postValue(true)
-                    }else
-                        shortToast(res.message)
+                    } else shortToast(res.message)
                 }
 
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401){
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {

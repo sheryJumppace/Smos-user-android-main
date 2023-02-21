@@ -53,10 +53,13 @@ class DetailsActivity : BaseActivity() {
         viewPager = findViewById(R.id.pager)
         tabLayout = findViewById(R.id.tab_layout)
 
-        barberId = intent.getIntExtra("barber_id",
-            0) //barber = BarberRepository.getInstance().getBarber(barberId) ?: Barber()
+        Log.d("++--++", "DetailsActivity is called ")
+
+        barberId = intent.getIntExtra(
+            "barber_id", 0
+        ) //barber = BarberRepository.getInstance().getBarber(barberId) ?: Barber()
         val barberRepository = BarberRepository.getInstance()
-        barberRepository.barber.value=null
+        barberRepository.barber.value = null
         barberRepository.barber.observe(this, androidx.lifecycle.Observer {
             if (it != null) {
                 barber = it
@@ -89,8 +92,11 @@ class DetailsActivity : BaseActivity() {
             val bundle = Bundle()
             bundle.putSerializable("catList", items)
 
-            startActivity(Intent(this, BookAppointmentActivity::class.java).putExtra("barber_id",
-                    barberId).putExtra("barber", barber).putExtras(bundle))
+            startActivity(
+                Intent(this, BookAppointmentActivity::class.java).putExtra(
+                    "barber_id", barberId
+                ).putExtra("barber", barber).putExtras(bundle)
+            )
         }
 
         clickListners()
@@ -102,7 +108,7 @@ class DetailsActivity : BaseActivity() {
             if (sessionManager.apiKey?.isNotEmpty()!!) {
                 barber.isFavorite.set(!barber.isFavorite.get())
                 updateFavoriteStatus()
-            }else{
+            } else {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.activity_enter, R.anim.activity_exit)
@@ -125,21 +131,18 @@ class DetailsActivity : BaseActivity() {
                 intent.addCategory(Intent.CATEGORY_BROWSABLE)
                 intent.data = Uri.parse(barber.website)
                 startActivity(intent)
-            }
-            else shortToast("No url found.")
+            } else shortToast("No url found.")
         }
         binding.llLocation.setOnClickListener {
             if (barber.latitude.toString().isNotEmpty()) {
-                val uri = java.lang.String.format(Locale.ENGLISH,
-                    "geo:%f,%f",
-                    barber.latitude,
-                    barber.longitude)
+                val uri = java.lang.String.format(
+                    Locale.ENGLISH, "geo:%f,%f", barber.latitude, barber.longitude
+                )
                 val strUri =
                     "http://maps.google.com/maps?q=loc:" + barber.latitude + "," + barber.longitude + " (" + barber.business_name + ")"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(strUri))
                 startActivity(intent)
-            }
-            else shortToast("No location found.")
+            } else shortToast("No location found.")
         }
         binding.llShare.setOnClickListener {
             createDynamicLink()
@@ -203,21 +206,23 @@ class DetailsActivity : BaseActivity() {
             tabLayout.setupWithViewPager(viewPager)
 
             viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-                override fun onPageScrolled(position: Int,
-                                            positionOffset: Float,
-                                            positionOffsetPixels: Int) {
+                override fun onPageScrolled(
+                    position: Int, positionOffset: Float, positionOffsetPixels: Int
+                ) {
 
                 }
 
                 override fun onPageSelected(position: Int) {
                     Log.e("TAG", "onPageSelected: $position")
                     if (position == 2) {
-                        if (sessionManager.apiKey?.isNotEmpty()!!){
-                            startActivity(Intent(this@DetailsActivity,
-                                ProductsActivity::class.java).putExtra(BARBER_ID, barberId)
-                                .putExtra(CALLED_FROM, DETAILS))
+                        if (sessionManager.apiKey?.isNotEmpty()!!) {
+                            startActivity(
+                                Intent(
+                                    this@DetailsActivity, ProductsActivity::class.java
+                                ).putExtra(BARBER_ID, barberId).putExtra(CALLED_FROM, DETAILS)
+                            )
                             viewPager.currentItem = 0
-                        }else{
+                        } else {
                             val intent = Intent(this@DetailsActivity, LoginActivity::class.java)
                             startActivity(intent)
                             overridePendingTransition(R.anim.activity_enter, R.anim.activity_exit)
@@ -270,14 +275,17 @@ class DetailsActivity : BaseActivity() {
         FirebaseDynamicLinks.getInstance().createDynamicLink()
             .setLink(Uri.parse("https://www.smox.page.link/open?barberId=$barberId"))
             .setDomainUriPrefix("https://smox.page.link") // Open links with this app on Android
-            .setAndroidParameters(DynamicLink.AndroidParameters.Builder("com.smox.smoxuser")
-                .build()) // Open links with com.example.ios on iOS
+            .setAndroidParameters(
+                DynamicLink.AndroidParameters.Builder("com.smox.smoxuser").build()
+            ) // Open links with com.example.ios on iOS
             .setIosParameters(DynamicLink.IosParameters.Builder("com.smox.smoxuser").build())
-            .setSocialMetaTagParameters(DynamicLink.SocialMetaTagParameters.Builder()
-                .setTitle("Amazing styler near you... " + barber.business_name)
-                .setDescription(barber.business_name + " Amazing styler. Checkout here...")
-                .setImageUrl(Uri.parse("https://i.ibb.co/qy04HPC/Smox-Trimsetters-atom-July-15-2021.png"))
-                .build()).buildShortDynamicLink().addOnSuccessListener { shortDynamicLink ->
+            .setSocialMetaTagParameters(
+                DynamicLink.SocialMetaTagParameters.Builder()
+                    .setTitle("Amazing styler near you... " + barber.business_name)
+                    .setDescription(barber.business_name + " Amazing styler. Checkout here...")
+                    .setImageUrl(Uri.parse("https://i.ibb.co/qy04HPC/Smox-Trimsetters-atom-July-15-2021.png"))
+                    .build()
+            ).buildShortDynamicLink().addOnSuccessListener { shortDynamicLink ->
                 dynamicLinkUri = shortDynamicLink.shortLink.toString()
                 Log.e("AAA", "test1 success $dynamicLinkUri")
 

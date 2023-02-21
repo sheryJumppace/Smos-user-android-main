@@ -1,9 +1,10 @@
 package com.smox.smoxuser.retrofit
 
 import android.content.Context
-import io.reactivex.Observable
-import com.google.gson.*
+import android.util.Log
+import com.google.gson.JsonObject
 import com.smox.smoxuser.model.*
+import io.reactivex.Observable
 
 class ApiRepository(private val context: Context) {
 
@@ -28,6 +29,10 @@ class ApiRepository(private val context: Context) {
     fun bookAppointment(
         jsonObject: JsonObject
     ): Observable<PaymentStartResponse> {
+
+
+        Log.d("++--++","bookAppointment jsonobject\n$jsonObject")
+
         return apiService.getRetrofitServiceForAuthForApp(context)
             .bookAppointment(jsonObject)
     }
@@ -55,7 +60,7 @@ class ApiRepository(private val context: Context) {
 
     fun getAllProducts(
         barberId: String,
-        userId:String
+        userId: String
     ): Observable<Products> {
         return apiService.getRetrofitServiceForAuthForApp(context).getAllProducts(barberId, userId)
     }
@@ -71,7 +76,8 @@ class ApiRepository(private val context: Context) {
         return apiService.getRetrofitServiceForAuthForApp(context).getCartList()
     }
 
-    fun getCartListByBarber(barberId: String
+    fun getCartListByBarber(
+        barberId: String
     ): Observable<CartResponse> {
         return apiService.getRetrofitServiceForAuthForApp(context).getCartListByBarber(barberId)
     }
@@ -87,7 +93,8 @@ class ApiRepository(private val context: Context) {
         return apiService.getRetrofitServiceForAuthForApp(context).getCartBarberList()
     }
 
-    fun addNewAddress(jsonObject: JsonObject
+    fun addNewAddress(
+        jsonObject: JsonObject
     ): Observable<SimpleOkResponse2> {
         return apiService.getRetrofitServiceForAuthForApp(context).addNewAddress(jsonObject)
     }
@@ -97,37 +104,44 @@ class ApiRepository(private val context: Context) {
         return apiService.getRetrofitServiceForAuthForApp(context).getAddressList()
     }
 
-    fun deleteAddress(jsonObject: JsonObject
+    fun deleteAddress(
+        jsonObject: JsonObject
     ): Observable<SimpleOkResponse2> {
         return apiService.getRetrofitServiceForAuthForApp(context).deleteAddress(jsonObject)
     }
 
-    fun sendChatNotification(jsonObject: JsonObject
+    fun sendChatNotification(
+        jsonObject: JsonObject
     ): Observable<SimpleOkResponse2> {
         return apiService.getRetrofitServiceForAuthForApp(context).sendChatNotification(jsonObject)
     }
 
-    fun checkout(jsonObject: JsonObject
+    fun checkout(
+        jsonObject: JsonObject
     ): Observable<CartPaymentResponse> {
         return apiService.getRetrofitServiceForAuthForApp(context).checkout(jsonObject)
     }
 
-    fun checkoutAgain(jsonObject: JsonObject
+    fun checkoutAgain(
+        jsonObject: JsonObject
     ): Observable<SimpleOkResponse2> {
         return apiService.getRetrofitServiceForAuthForApp(context).checkoutAgain(jsonObject)
     }
 
-    fun getOrderList(status:String, page : Int
+    fun getOrderList(
+        status: String, page: Int
     ): Observable<OrderListResponse> {
         return apiService.getRetrofitServiceForAuthForApp(context).getOrderList(status, page)
     }
 
-    fun getOrderDetailList(orderId:String
+    fun getOrderDetailList(
+        orderId: String
     ): Observable<OrderDetailResponse> {
         return apiService.getRetrofitServiceForAuthForApp(context).getOrderDetailList(orderId)
     }
 
-    fun cancelOrder(jsonObject: JsonObject
+    fun cancelOrder(
+        jsonObject: JsonObject
     ): Observable<SimpleOkResponse2> {
         return apiService.getRetrofitServiceForAuthForApp(context).cancelOrder(jsonObject)
     }

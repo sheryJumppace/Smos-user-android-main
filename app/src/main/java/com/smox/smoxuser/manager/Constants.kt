@@ -32,11 +32,13 @@ object Constants {
         //const val hosting = "https://smoxtrimsetters.com/api/v4.1/"
 
         //test server url
-//        const val hosting = "https://smoxtrimsetters.com/api/v5/"
-        const val hosting = "https://smox.jumppace.com/api/v4.2/"
+        const val hosting = "https://smox.jumppace.com/api/v6/"
+//        const val hosting = "https://smoxtrimsetters.com/api/v6/"
+//                    const val hosting = "https://smox.jumppace.com/api/v4.2/"
 
 //        const val newHosting = "https://smoxtrimsetters.com/"
-        const val newHosting = "https://smox.jumppace.com/api/v4.2/"
+//        const val newHosting = "https://smox.jumppace.com/api/v4.2/"
+        const val newHosting = "https://smox.jumppace.com/api/v6/"
 
         const val server = hosting
 

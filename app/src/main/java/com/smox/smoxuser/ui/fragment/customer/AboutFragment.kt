@@ -27,8 +27,7 @@ class AboutFragment : Fragment() {
     private lateinit var barberHoliday: List<HolidayRes.Holidays>
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAboutBinding.inflate(inflater, container, false)
         return binding.root
@@ -39,14 +38,18 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         barberId = requireArguments().getInt("barber_id")
-        barber = BarberRepository.getInstance().barber.value!!
+        try {
+            barber = BarberRepository.getInstance().barber.value!!
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         barberHoliday = arrayListOf()
 
         if (BarberRepository.getInstance().barberHolidayList.value != null) {
             barberHoliday = BarberRepository.getInstance().barberHolidayList.value!!
         }
 
-        Log.e(TAG, "onViewCreated: ${barberHoliday.size}" )
+        Log.e(TAG, "onViewCreated: ${barberHoliday.size}")
 
         showWorkingHours()
         showHolidayList()
@@ -63,12 +66,12 @@ class AboutFragment : Fragment() {
         binding.rvHolidayList.layoutManager = layoutManager
         binding.rvHolidayList.adapter = adapter
         adapter.setData(barberHoliday as ArrayList<HolidayRes.Holidays>)
-        if (barberHoliday.isNotEmpty()){
-            binding.rvHolidayList.visibility=View.VISIBLE
-            binding.tvNoDataFound.visibility=View.GONE
-        }else{
-            binding.rvHolidayList.visibility=View.GONE
-            binding.tvNoDataFound.visibility=View.VISIBLE
+        if (barberHoliday.isNotEmpty()) {
+            binding.rvHolidayList.visibility = View.VISIBLE
+            binding.tvNoDataFound.visibility = View.GONE
+        } else {
+            binding.rvHolidayList.visibility = View.GONE
+            binding.tvNoDataFound.visibility = View.VISIBLE
         }
     }
 
@@ -99,8 +102,7 @@ class AboutFragment : Fragment() {
                     }
                 }
             }
-        } else
-            shortToast("Opening Closing time not available.")
+        } else shortToast("Opening Closing time not available.")
 
     }
 }

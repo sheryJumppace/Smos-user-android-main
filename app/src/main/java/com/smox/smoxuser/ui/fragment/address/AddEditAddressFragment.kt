@@ -6,6 +6,8 @@ import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -37,15 +39,26 @@ class AddEditAddressFragment : Fragment() {
     lateinit var binding: FragmentAddEditAddressBinding
     lateinit var addressViewModel: AddressViewModel
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAddEditAddressBinding.inflate(inflater, container, false)
         addressViewModel = (activity as ProductsActivity).addressViewModel
 
         val bundle = arguments
-        val value = bundle!!.getBoolean(IS_EDIT)
-        val addressItem = bundle.getParcelable<AddressResponse.AddressData>(ADDRESS_ITEM)
+        var value = false
+        var addressItem: AddressResponse.AddressData? = null
+        try {
+            value = bundle!!.getBoolean(IS_EDIT)
+            addressItem = bundle!!.getParcelable<AddressResponse.AddressData>(ADDRESS_ITEM)
+
+
+        } catch (e: Exception) {
+            value = false
+
+            e.printStackTrace()
+        }
+
+
         addressViewModel.isEdit.value = value
         (activity as ProductsActivity).txtTitle.text =
             if (value) "Update Address" else "Add Address"
@@ -53,11 +66,24 @@ class AddEditAddressFragment : Fragment() {
         binding.defaultSwitch.isEnabled = addressViewModel.addressCount.get()!! >= 1
         addressViewModel.isDefault.set(addressViewModel.addressCount.get()!! < 1)
         binding.viewModel = addressViewModel
-        if (value)
-            addressViewModel.setAddressData(addressItem)
-        else
-            addressViewModel.clearData()
+        if (value && addressItem != null) addressViewModel.setAddressData(addressItem)
+        else addressViewModel.clearData()
 
+
+        binding.etZipCode.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                if (binding.etZipCode.text.toString().length > 3) {
+                    addressViewModel.zipCode.set(binding.etZipCode.text.toString())
+                }
+            }
+        })
         return binding.root
     }
 
@@ -90,8 +116,7 @@ class AddEditAddressFragment : Fragment() {
                 Place.Field.LAT_LNG
             )
             val autoSearchIntent = Autocomplete.IntentBuilder(
-                AutocompleteActivityMode.FULLSCREEN,
-                fields
+                AutocompleteActivityMode.FULLSCREEN, fields
             ).build(requireActivity())
             startActivityForResult(autoSearchIntent, AUTOCOMPLETE_REQUEST_CODE)
         }
@@ -122,9 +147,7 @@ class AddEditAddressFragment : Fragment() {
         try {
             val geocoder = Geocoder(requireActivity(), Locale.getDefault())
             val addresses: List<Address> = geocoder.getFromLocation(
-                addressViewModel.lat.get()!!,
-                addressViewModel.lon.get()!!,
-                1
+                addressViewModel.lat.get()!!, addressViewModel.lon.get()!!, 1
             )
             if (addresses.isNotEmpty()) {
                 val address: Address = addresses[0]
@@ -134,6 +157,10 @@ class AddEditAddressFragment : Fragment() {
                 addressViewModel.zipCode.set(address.postalCode)
                 addressViewModel.country.set(address.countryName)
 
+                if (address.postalCode == null) {
+                    binding.etZipCode.isEnabled = true
+                }
+                Log.d("++--++", "address.postalCode : ${address.postalCode}")
             }
         } catch (e: IOException) {
             Log.e("tag", e.localizedMessage)

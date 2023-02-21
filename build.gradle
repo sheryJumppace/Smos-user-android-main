@@ -1,0 +1,115 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.5.21'
+    ext.navigationVersion = '2.3.5'
+    ext {
+        APP_ID = "com.smox.smoxtrimsetters"
+
+        version_kotlin = '1.5.21'
+        version_billing = '2.0.1'
+        version_lifecycle = '1.1.1'
+        version_coroutines = '1.0.1'
+        version_room = "2.2.5"
+        version_nav = "1.0.0-alpha07"
+        version_support = "1.0.0"
+        version_espresso = "3.1.0-alpha4"
+        version_runner = "1.1.0-alpha4"
+        version_rules = "1.1.0-alpha4"
+        version_arch_core = "2.0.0"
+    }
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+
+    }
+    dependencies {
+
+        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.2.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        maven {
+            url "https://maven.google.com" // Google's Maven repository
+        }
+
+        maven {
+            url "https://github.com/QuickBlox/quickblox-android-sdk-releases/raw/master/"
+        }
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+ext{
+    compileSdkVersion = 28
+    buildToolsVersion = "28.0.3"
+
+    minSdkVersion = 16
+    targetSdkVersion = 28
+
+
+
+    glideVersion = '4.9.0'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    recycleVersion = "25.3.1"
+    circleImageVersion = "3.0.0"
+
+    exoPlayerVersion = "r2.5.4"
+    supportV4Version = "25.3.1"
+
+
+    lintAbortOnError = false
+
+    dimensionDefault = 'default'
+
+    // QuickBlox SDK version
+    qbSdkVersion = '3.9.1'
+    smackVersion = '4.3.2'
+
+    //Kotlin
+    kotlinGradlePluginVersion = '1.2.71'
+
+    //Fabric
+    fabricToolsVersion = '1.27.0'
+
+    //Firebase
+    firebaseCoreVersion = '16.0.8'
+
+    //Material
+    materialVersion = '1.0.0'
+
+    //Android X
+    fragmentAndroidXVersion = '1.0.0'
+    lifecycleViewmodelAndroidXVersion = '1.0.0'
+    coreKtxVersion = '1.0.1'
+
+    //RobotoTextView
+    robotoTextViewVersion = '4.0.0'
+    //StickyListenerHeaders
+    stickylistheadersVersion = '0.4.2'
+
+    //Swipy
+    swipyVersion = '1.2.3'
+
+    //Crashlytics
+    crashlyticsVersion = '2.9.5'
+}

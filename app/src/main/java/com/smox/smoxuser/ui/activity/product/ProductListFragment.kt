@@ -34,10 +34,9 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
     var newcartItem = 0
     var pos = 0
     var cartCountt = 0
-    lateinit var cartItem:CartItems
+    lateinit var cartItem: CartItems
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProductListBinding.inflate(inflater, container, false)
         productViewModel = (activity as ProductsActivity).productViewModel
@@ -47,17 +46,18 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
 
     override fun onResume() {
         super.onResume()
-        Log.e("TAG", "ProductList onResume: ", )
+        Log.e("TAG", "ProductList onResume: ")
+
     }
 
     override fun onStop() {
         super.onStop()
-        Log.e("TAG", "ProductList onStop: ", )
+        Log.e("TAG", "ProductList onStop: ")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = ProductAdapter(requireContext(),this)
+        adapter = ProductAdapter(requireContext(), this)
 
         binding.rvProducts.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvProducts.adapter = adapter
@@ -65,20 +65,21 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
         (activity as ProductsActivity).txtTitle.text = "Products"
         (activity as ProductsActivity).imgCart.visibility = View.GONE
 
-        productViewModel.userId.value=SessionManager.getInstance(requireContext()).userId.toString()
+        productViewModel.userId.value =
+            SessionManager.getInstance(requireContext()).userId.toString()
 
         binding.viewModel = productViewModel
 
         initObserver()
 
         productViewModel.getCartListByBarber(
-            requireContext(),
-            (activity as ProductsActivity).progressBar
+            requireContext(), (activity as ProductsActivity).progressBar
         )
     }
 
     private fun initObserver() {
         productViewModel.productRes.observe(viewLifecycleOwner, Observer { productsRes ->
+        Log.d("++--++","productRes.observe")
             if (productsRes != null) {
                 if (productsRes.result.isNotEmpty()) {
                     val productList = productsRes.result
@@ -106,6 +107,7 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
         })
 
         productViewModel.isCartAdded.observe(viewLifecycleOwner, Observer {
+            Log.d("++--++","isCartAdded.observe")
             if (viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED) {
                 if (it) {
                     if (newcartItem != null) {
@@ -125,26 +127,25 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
         })
 
         productViewModel.cartData.observe(viewLifecycleOwner, Observer {
+            Log.d("++--++","cartData.observe")
 
             if (viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED) {
                 cartListId.clear()
                 if (it.cart_items != null) {
-                    for (item in it.cart_items)
-                        cartListId.add(item.product_id)
+                    for (item in it.cart_items) cartListId.add(item.product_id)
                 }
                 cartCountt = productViewModel.cartCount.get()!!
                 productViewModel.getAllProducts(
-                    requireContext(),
-                    (activity as ProductsActivity).progressBar
+                    requireContext(), (activity as ProductsActivity).progressBar
                 )
             }
         })
 
         binding.flCart.setOnClickListener {
             if (cartListId.size > 0) {
-                Navigation.findNavController(it).navigate(R.id.action_productListFragment_to_cartFragment)
-            } else
-                shortToast("Cart is empty")
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_productListFragment_to_cartFragment)
+            } else shortToast("Cart is empty")
         }
     }
 
@@ -156,7 +157,8 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
         }
         val bundle = Bundle()
         bundle.putParcelable(Constants.API.PRODUCT, product)
-        Navigation.findNavController(requireView()).navigate(R.id.action_productListFragment_to_productDetailsFragment, bundle)
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_productListFragment_to_productDetailsFragment, bundle)
     }
 
     override fun onAddToCartClickListner(product: Products.ProductItem, position: Int) {
@@ -165,18 +167,25 @@ class ProductListFragment : Fragment(), ProductAdapter.ItemClickListner {
         jsonObject.addProperty("product_id", product.id)
         jsonObject.addProperty("barber_id", product.user_id)
         jsonObject.addProperty(
-            "user_id",
-            SessionManager.getInstance(requireContext().applicationContext).userId
+            "user_id", SessionManager.getInstance(requireContext().applicationContext).userId
         )
         jsonObject.addProperty("quantity", 1)
-        cartItem=CartItems(0,product.id,product.user_id,SessionManager.getInstance(requireContext().applicationContext).userId
-            ,1,0,"","",false, product)
+        cartItem = CartItems(
+            0,
+            product.id,
+            product.user_id,
+            SessionManager.getInstance(requireContext().applicationContext).userId,
+            1,
+            0,
+            "",
+            "",
+            false,
+            product
+        )
         pos = position
         newcartItem = product.id
         productViewModel.addToCart(
-            requireContext(),
-            (activity as ProductsActivity).progressBar,
-            jsonObject
+            requireContext(), (activity as ProductsActivity).progressBar, jsonObject
         )
     }
 

@@ -61,7 +61,7 @@ class ServicesFragment : Fragment(), OnItemClicked, NewServiceAdapter.OnServiceC
     }
 
     override fun onItemClick(pos: Int) {
-        Log.e(TAG, "onItemClick: $pos")
+        Log.e(TAG, "---> 2 onItemClick: $pos")
         binding.tvNoDataFound.visibility = View.GONE
         catServiceList.clear()
         if (!catItemList[pos].services.isNullOrEmpty())

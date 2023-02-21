@@ -2,10 +2,10 @@ package com.smox.smoxuser.viewmodel
 
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.smox.smoxuser.R
 import com.smox.smoxuser.manager.APIHandler
@@ -28,12 +28,9 @@ class PaymentViewModel : ViewModel() {
     var isConfirmDone = MutableLiveData<Boolean>()
 
     fun bookAppointment(
-        context: Context,
-        isFreshBooking: Boolean,
-        jsonObject: JsonObject
+        context: Context, isFreshBooking: Boolean, jsonObject: JsonObject
     ) {
-        ApiRepository(context).bookAppointment(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).bookAppointment(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<PaymentStartResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -41,6 +38,7 @@ class PaymentViewModel : ViewModel() {
                 }
 
                 override fun onNext(res: PaymentStartResponse) {
+                    Log.e("++--++", "41 PaymentViewModel onNext: ${Gson().toJson(res)}")
                     if (res.error) {
                         errorMessage.set(res.message)
                         isSuccess.postValue(false)
@@ -51,15 +49,17 @@ class PaymentViewModel : ViewModel() {
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.e("TAG", "onError: ${e.message}")
-                    errorMessage.set(e.message)
-                    isSuccess.postValue(false)
-                    if ((e as HttpException).code()==401){
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    Log.e("++--++", "52 PaymentViewModel onError: ${e.message}")
+                    try {
+                        errorMessage.set(e.message)
+                        isSuccess.postValue(false)
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -70,8 +70,7 @@ class PaymentViewModel : ViewModel() {
     }
 
     fun confirmAppointment(context: Context, jsonObject: JsonObject) {
-        ApiRepository(context).confirmAppointment(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).confirmAppointment(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse1> {
                 override fun onSubscribe(d: Disposable) {
@@ -90,15 +89,17 @@ class PaymentViewModel : ViewModel() {
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.e("TAG", "onError: ${e.message}")
-                    errorMessage.set(e.message)
-                    isBookingConfirmed.postValue(false)
-                    if ((e as HttpException).code()==401){
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        Log.e("TAG", "onError: ${e.message}")
+                        errorMessage.set(e.message)
+                        isBookingConfirmed.postValue(false)
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+                    } catch (ex: Exception) {
+                        ex.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -109,8 +110,7 @@ class PaymentViewModel : ViewModel() {
     }
 
     fun confirmAppointmentPayment(context: Context, jsonObject: JsonObject) {
-        ApiRepository(context).confirmAppointment(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).confirmAppointment(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse1> {
                 override fun onSubscribe(d: Disposable) {
@@ -118,6 +118,7 @@ class PaymentViewModel : ViewModel() {
                 }
 
                 override fun onNext(res: SimpleOkResponse1) {
+                    Log.e("++--++", "onNext: ${Gson().toJson(res)}")
 
                     if (res.error) {
                         errorMessage.set(res.message)
@@ -128,15 +129,23 @@ class PaymentViewModel : ViewModel() {
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.e("TAG", "onError: ${e.message}")
-                    errorMessage.set(e.message)
-                    isConfirmDone.postValue(false)
-                    if ((e as HttpException).code()==401){
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+
+
+                    try {
+                        Log.e("++--++", "onError: ${e.message}")
+                        errorMessage.set(e.message)
+                        isConfirmDone.postValue(false)
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (EX: Exception) {
+                        e.printStackTrace()
+                        shortToast("Something went wrong")
                     }
-                    else
-                        shortToast(e.message())
+
+
                 }
 
                 override fun onComplete() {

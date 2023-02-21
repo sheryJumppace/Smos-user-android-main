@@ -50,6 +50,9 @@ class AddressViewModel : ViewModel() {
     fun submit(view: View) {
         if (isInputDataValidate(view.context)) {
 
+
+            Log.d("++--++","ZipCode in view model : ${zipCode.get().toString()}")
+
             val progressBar = getProgressBar(view.context)
             progressBar.show()
 
@@ -69,6 +72,7 @@ class AddressViewModel : ViewModel() {
             jsonObject.addProperty("phone", phoneNumber.get().toString())
             jsonObject.addProperty("make_default", if (isDefault.get()!!) 1 else 0)
 
+            Log.d("++--++","jsonObject \n : ${jsonObject}")
 
 
             ApiRepository(view.context).addNewAddress(jsonObject).subscribeOn(Schedulers.io())
@@ -80,6 +84,8 @@ class AddressViewModel : ViewModel() {
 
                     override fun onNext(res: SimpleOkResponse2) {
                         progressBar.dismiss()
+                        Log.d("++--++","deliveryAddress\n" +
+                                "\nsubmit res.message : ${res.message}")
 
                         if (!res.error) {
                             shortToast(res.message)

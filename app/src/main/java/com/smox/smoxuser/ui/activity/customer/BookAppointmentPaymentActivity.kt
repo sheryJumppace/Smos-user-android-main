@@ -4,19 +4,18 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.smox.smoxuser.BuildConfig
@@ -47,7 +46,6 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import retrofit2.HttpException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -75,6 +73,8 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
 
         if (intent.hasExtra("appointment")) {
             appointment = intent.getSerializableExtra("appointment") as Appointment
+
+            Log.d("++--++", "->>>>  appointment \n ${Gson().toJson(appointment)}")
         }
 
         viewModel = ViewModelProvider(this).get(PaymentViewModel::class.java)
@@ -111,6 +111,9 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
         }
         binding.txtTotalPay.text = "$$totalPay"
         appointment.duration = duration
+        Log.d(
+            "++--++", "114 BookAppointmentPaymentActivity is called : " + Gson().toJson(appointment)
+        )
 
         binding.imgAddCard.setOnClickListener {
             addcard = AddNewCardDialog(this, this)
@@ -121,9 +124,10 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
         }
 
         binding.txtNext.setOnClickListener {
-//            Log.d("++--++", "appointment.id : ${appointment.id}")
-
-            appointment.id = 2
+            Log.d(
+                "++--++",
+                "class BookAppointmentPaymentActivity line 124 \n appointment.id : ${appointment.id}"
+            )
 
             if (appointment.id == -1) bookNewAppointment()
             else completePayment()
@@ -163,6 +167,7 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
         val jsonObject = getJsonObject()
 
         Log.e(TAG, "bookNewAppointment: asdasdasds $jsonObject")
+        Log.e("++--++", "bookNewAppointment: asdasdasds $jsonObject")
         if (appointment.id == -1) viewModel.bookAppointment(this, true, jsonObject)
         else viewModel.bookAppointment(this, false, jsonObject)
     }
@@ -275,7 +280,6 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
         val versionName = BuildConfig.VERSION_NAME
         val timeZone = TimeZone.getDefault().id
 
-        val networkTS = getSystemService(LOCATION_SERVICE) as LocationManager
         if (ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
@@ -284,11 +288,27 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
         ) {
 
         }
-        val time = networkTS.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)?.time;
+        val networkTS = getSystemService(LOCATION_SERVICE) as LocationManager
 
+        var time: Long? = 0L
+        try {
+            time = networkTS.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)?.time;
+
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
         val formatterr = SimpleDateFormat("dd/MM/yyyy hh:mm:ss", Locale.getDefault())
 
+
+        Log.e("++--++", "getJsonObject: $time   $versionName    $timeZone")
+
         val calendar = Calendar.getInstance()
+
+        if (time==null){
+            time = System.currentTimeMillis() / 1000L
+
+        }
+
         calendar.timeInMillis = time!!
         val newTimerr = formatterr.format(calendar.time)
 
@@ -297,6 +317,10 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
         val jsonObject = JsonObject()
         jsonObject.addProperty("source", "debit card")
         jsonObject.addProperty("barber_id", appointment.barberId.toString())
+
+        /* if (appointment.id <= 0) {
+             appointment.id = 2
+         }*/
         jsonObject.addProperty("appointment_id", appointment.id.toString())
         jsonObject.addProperty("amount", (totalPay * 100).toInt().toString())
         jsonObject.addProperty("cardId", "cardList[selectedCardPos].id")
@@ -324,7 +348,7 @@ class BookAppointmentPaymentActivity : BaseActivity(), NewServiceAdapter.OnServi
     private fun completePayment() {
         progressHUD.show()
         val jsonObject = getJsonObject()
-Log.d("++--++","===>\n\nJsonObject \n $jsonObject")
+        Log.d("++--++", "===>\n\nJsonObject \n $jsonObject")
         viewModel.confirmAppointmentPayment(this, jsonObject)
     }
 
@@ -408,6 +432,12 @@ Log.d("++--++","===>\n\nJsonObject \n $jsonObject")
                 override fun onSubscribe(d: Disposable) {}
 
                 override fun onNext(cardResponse: SavedCardListResponse) {
+                    Log.e(
+                        "++--++",
+                        "BookAppointmentPaymentActivity is called and getAllSavedStripeCards is called in onNext : ${
+                            Gson().toJson(cardResponse)
+                        }"
+                    )
                     progressHUD.dismiss()
                     if (cardResponse.data.isNotEmpty()) {
                         cardList.clear()
@@ -423,6 +453,10 @@ Log.d("++--++","===>\n\nJsonObject \n $jsonObject")
                 override fun onError(e: Throwable) {
                     progressHUD.dismiss()
                     Log.e(TAG, "onError: ${e.localizedMessage}")
+                    Log.e(
+                        "++--++",
+                        "BookAppointmentPaymentActivity is called and getAllSavedStripeCards is called in error : ${e.localizedMessage}"
+                    )
 
                 }
 
