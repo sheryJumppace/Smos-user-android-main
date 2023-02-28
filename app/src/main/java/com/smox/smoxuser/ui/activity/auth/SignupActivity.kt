@@ -41,9 +41,9 @@ class SignupActivity : BaseLoginActivity(), View.OnClickListener {
         binding.btnSignUp.setOnClickListener(this)
         binding.txtPhone.setOnClickListener(this)
         binding.lnrLogin.setOnClickListener(this)
-        binding.txtPhone.setText("+923461234567")
+        binding.txtPhone.setText("+923463885111")
 
-        //binding.txtPhone.isEnabled = false
+//        binding.txtPhone.isEnabled = false
         binding.txtPhone.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}

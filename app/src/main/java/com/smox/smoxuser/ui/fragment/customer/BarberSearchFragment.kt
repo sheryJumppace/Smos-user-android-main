@@ -73,8 +73,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBarberSearchBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
@@ -88,8 +87,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
         viewModel = ViewModelProviders.of(this, factory).get(BarberListViewModel::class.java)
 
 
-        if (sessionManager.apiKey?.isEmpty()!!)
-            binding.llFavourite.visibility=View.GONE
+        if (sessionManager.apiKey?.isEmpty()!!) binding.llFavourite.visibility = View.GONE
 
         adapter = BarberSearchAdapter(requireContext(), this)
         val layoutManager =
@@ -102,8 +100,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
             val diff = view.bottom - (binding.nestedScroll.height + binding.nestedScroll.scrollY)
 
             if (diff == 0) {
-                if (currentLatLng != null)
-                    callBarberListData()
+                if (currentLatLng != null) callBarberListData()
             }
         }
 
@@ -133,8 +130,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
                     intent.putExtra("barber_id", barber.id)
                     startActivity(intent)
                     requireActivity().overridePendingTransition(
-                        R.anim.activity_enter,
-                        R.anim.activity_exit
+                        R.anim.activity_enter, R.anim.activity_exit
                     )
                 }
             }, object : ItemFavClick {
@@ -156,8 +152,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
         binding.fabButton.setOnClickListener {
             startActivity(
                 Intent(
-                    requireContext(),
-                    BarbersOnMapActivity::class.java
+                    requireContext(), BarbersOnMapActivity::class.java
                 ).putExtra("calledFrom", "homePage")
             )
         }
@@ -181,7 +176,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
     }
 
     private fun callFavouriteBarberApi() {
-        if (sessionManager.apiKey?.isNotEmpty()!!){
+        if (sessionManager.apiKey?.isNotEmpty()!!) {
             viewModel.fetchList(requireContext(), currentLatLng, isFavorite = true, page = "1")
         }
     }
@@ -194,7 +189,14 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
                 binding.bottomProgressBar.visibility = View.VISIBLE
             }
             Log.e(TAG, "loadMoreItems: called pageStart: $pageStart   isLastPage: $isLastPage")
-            viewModel.fetchList(contextt, currentLatLng, page = pageStart.toString())
+            try {
+                
+                viewModel.fetchList(contextt, currentLatLng, page = pageStart.toString())
+
+            } catch (e: Exception) {
+                viewModel.fetchList(requireContext(), currentLatLng, page = pageStart.toString())
+                e.printStackTrace()
+            }
         }
 
     }
@@ -238,8 +240,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
 
         progressHUD.show()
 
-        APIHandler(
-            requireContext(),
+        APIHandler(requireContext(),
             Request.Method.POST,
             Constants.API.favorite_barber,
             params,
@@ -250,10 +251,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
                     Log.e(TAG, "onResult: $result")
 
                     viewModel.fetchList(
-                        requireContext(),
-                        currentLatLng,
-                        isFavorite = true,
-                        page = "1"
+                        requireContext(), currentLatLng, isFavorite = true, page = "1"
                     )
                 }
 
@@ -269,17 +267,14 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
 
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(
-                requireActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            )
-            != PackageManager.PERMISSION_GRANTED
+                requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
         ) {
 
             // Permission is not granted
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    requireActivity(),
-                    Manifest.permission.ACCESS_FINE_LOCATION
+                    requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION
                 )
             ) {
                 // Show an explanation to the user *asynchronously* -- don't block
@@ -327,8 +322,7 @@ class BarberSearchFragment : BaseFragment(), BarberSearchAdapter.ItemClickListne
         val tempList = ArrayList<Barber>()
         for (item in barberList) {
             if (item.firstName.contains(searchText, true) || item.lastName.contains(
-                    searchText,
-                    true
+                    searchText, true
                 )
             ) {
                 tempList.add(item)
