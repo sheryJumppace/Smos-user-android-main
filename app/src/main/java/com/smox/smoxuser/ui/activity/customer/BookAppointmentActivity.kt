@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -72,11 +73,9 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
             setAdapter()
         }
 
-        binding.datePicker
-            .setListener(this)
+        binding.datePicker.setListener(this)
             .setDateSelectedColor(ContextCompat.getColor(this, R.color.gold))
-            .setTodayDateBackgroundColor(ContextCompat.getColor(this, R.color.gold))
-            .setOffset(3)
+            .setTodayDateBackgroundColor(ContextCompat.getColor(this, R.color.gold)).setOffset(3)
             .init()
 
         binding.datePicker.setDate(DateTime(DateTimeZone.getDefault()).plusDays(0))
@@ -86,20 +85,17 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
         }
 
         binding.txtNext.setOnClickListener {
-       Log.d("++--++","BookAppointmentActivity is called")
             if (sessionManager.apiKey?.isNotEmpty()!!) {
                 val serviceList = arrayListOf<Service>()
                 for (item in serviceSelectedList) {
                     //Log.e(TAG, "onCreate: service selected " + item.isSelected.get())
-                    if (item.isSelected.get())
-                        serviceList.add(item)
+                    if (item.isSelected.get()) serviceList.add(item)
                 }
 
                 val timeSelected = arrayListOf<String>()
 
                 for (slot in timeSlotList) {
-                    if (slot.isSelected)
-                        timeSelected.add(slot.timeslot)
+                    if (slot.isSelected) timeSelected.add(slot.timeslot)
                 }
                 if (serviceList.isNotEmpty() && timeSelected.isNotEmpty()) {
                     val appointment = Appointment()
@@ -112,8 +108,9 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
                     appointment.barberName = barber.firstName + " " + barber.lastName
 
                     startActivity(
-                        Intent(this, BookAppointmentPaymentActivity::class.java)
-                            .putExtra("appointment", appointment)
+                        Intent(
+                            this, BookAppointmentPaymentActivity::class.java
+                        ).putExtra("appointment", appointment)
                     )
                 } else {
                     shortToast("Please select service or time slot first.")
@@ -140,6 +137,7 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
 
         })
     }
+
     private fun setAdapter() {
         serviceAdapter = NewServiceAdapter(this, catServiceList, true, this)
         binding.rvServiceList.layoutManager =
@@ -174,13 +172,19 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
         if (dateSelected >= currDate) {
             binding.datePicker.setDateSelectedTextColor(
                 ContextCompat.getColor(
-                    this,
-                    R.color.SelectedColor
+                    this, R.color.SelectedColor
                 )
             )
 
             var newStartTime = "-"
             var newEndTime = "-"
+            if (barber.openDays.size <= 0) {
+                Toast.makeText(this, "Opening / Closing time is missing", Toast.LENGTH_SHORT).show()
+                finish()
+                return
+            }
+
+
             val openDay = barber.openDays[dateSelectCalender.get(Calendar.DAY_OF_WEEK) - 1]
             if (!openDay.isClosed) {
                 if (dateSelected == currDate) {
@@ -236,8 +240,7 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
                         arrayListOf(TimeSlotResult("Closed", 0, false))
                 }
             } else {
-                slotViewModel.timeSlotList.value =
-                    arrayListOf(TimeSlotResult("Closed", 0, false))
+                slotViewModel.timeSlotList.value = arrayListOf(TimeSlotResult("Closed", 0, false))
             }
 
         } else {
@@ -254,10 +257,8 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
         Log.e(TAG, "--> onItemClick: $pos")
         binding.tvNoDataFound.visibility = View.GONE
         catServiceList.clear()
-        if (!items[pos].services.isNullOrEmpty())
-            catServiceList.addAll(items[pos].services)
-        else
-            binding.tvNoDataFound.visibility = View.VISIBLE
+        if (!items[pos].services.isNullOrEmpty()) catServiceList.addAll(items[pos].services)
+        else binding.tvNoDataFound.visibility = View.VISIBLE
 
         serviceAdapter.notifyDataSetChanged()
     }
@@ -269,19 +270,16 @@ class BookAppointmentActivity : BaseActivity(), DatePickerListener, OnItemClicke
         val index = serviceSelectedList.indexOfFirst { it.id == service.id }
         if (index == -1) {
             serviceSelectedList.add(catServiceList[pos])
-        } else
-            serviceSelectedList.remove(service)
+        } else serviceSelectedList.remove(service)
 
         for (item in serviceSelectedList) {
-            if (item.isSelected.get())
-                duration += item.duration
+            if (item.isSelected.get()) duration += item.duration
         }
         var canSelectSlotCount = 0
         if (duration > 0) {
             canSelectSlotCount = duration / 10
             val oddDuration = duration % 10
-            if (oddDuration != 0)
-                canSelectSlotCount++
+            if (oddDuration != 0) canSelectSlotCount++
         }
 
         slotAdapter.canSelectSlotCount(canSelectSlotCount)
